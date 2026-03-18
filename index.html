@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JerkyCandy | Indie Game Developer</title>
-  <meta name="description" content="JerkyCandy is a solo indie game developer based in South Korea, focused on unique ideas and engaging gameplay." />
+  <meta id="meta-desc" name="description" content="JerkyCandy is a solo indie game developer based in South Korea, focused on unique ideas and engaging gameplay." />
   <style>
     :root {
       --bg: #0a0c14;
@@ -20,7 +20,7 @@
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 16px;
-      --max: 1160px;
+      --max: 1240px;
     }
 
     * { box-sizing: border-box; }
@@ -81,31 +81,11 @@
       line-height: 0;
     }
 
-    /* 헤더 로고: 네비·타일과 같은 글래스 칩으로 사이트 톤에 맞춤 */
-    .brand-chip {
-      display: flex;
-      align-items: center;
-      padding: 10px 16px 10px 12px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.08) inset;
-      transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .brand:hover .brand-chip {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(34, 211, 238, 0.2);
-      box-shadow:
-        0 0 0 1px rgba(139, 92, 246, 0.12) inset,
-        0 8px 32px rgba(0, 0, 0, 0.25);
-    }
-
     .brand-logo {
       display: block;
-      height: clamp(28px, 4.2vw, 40px);
+      height: clamp(32px, 4.5vw, 44px);
       width: auto;
-      max-width: min(200px, 50vw);
+      max-width: min(220px, 55vw);
       object-fit: contain;
       object-position: left center;
     }
@@ -129,8 +109,53 @@
       background: rgba(255,255,255,0.06);
     }
 
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .lang-switch .lang-btn {
+      margin: 0;
+      padding: 9px 14px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .lang-switch .lang-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .lang-switch .lang-btn[aria-pressed="true"] {
+      color: var(--text);
+      background: rgba(139, 92, 246, 0.22);
+    }
+
+    .lang-switch .lang-btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    html[lang="ko"] body {
+      font-family:
+        "Pretendard Variable", Pretendard, "Malgun Gothic", "Apple SD Gothic Neo",
+        Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
     .hero {
-      padding: 72px 0 36px;
+      padding: 72px 0 52px;
     }
 
     .hero-card {
@@ -141,9 +166,6 @@
       border-radius: 36px;
       box-shadow: var(--shadow);
       padding: 56px;
-      display: grid;
-      grid-template-columns: 1.4fr 0.9fr;
-      gap: 36px;
       isolation: isolate;
     }
 
@@ -233,38 +255,16 @@
       border-color: rgba(255,255,255,0.1);
     }
 
-    .hero-side {
-      display: grid;
-      gap: 16px;
-      align-content: start;
-    }
-
-    .info-tile {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 22px;
-    }
-
-    .info-label {
-      font-size: 0.78rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 10px;
-    }
-
-    .info-value {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
     main {
-      padding: 18px 0 80px;
+      padding: 48px 0 96px;
+    }
+
+    .section + .section {
+      margin-top: 56px;
     }
 
     .section {
-      margin-top: 26px;
+      margin-top: 0;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
@@ -362,8 +362,8 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
-      gap: clamp(24px, 4vw, 48px);
+      grid-template-columns: minmax(300px, 44%) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 40px);
       align-items: stretch;
       padding: 8px 34px 34px;
     }
@@ -444,6 +444,8 @@
       font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.5;
+      text-align: center;
+      width: 100%;
     }
 
     .game-copy-column {
@@ -576,7 +578,8 @@
     }
 
     footer {
-      padding: 26px 0 44px;
+      margin-top: 24px;
+      padding: 32px 0 48px;
       color: var(--muted);
       text-align: center;
       font-size: 0.95rem;
@@ -584,7 +587,6 @@
 
     @media (max-width: 980px) {
       .hero-card {
-        grid-template-columns: 1fr;
         padding: 30px;
       }
 
@@ -600,7 +602,7 @@
       }
 
       .game-art-column {
-        max-width: 260px;
+        max-width: min(340px, 88vw);
         margin: 0 auto;
       }
 
@@ -657,16 +659,17 @@
 
   <header>
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="JerkyCandy home">
-        <span class="brand-chip">
-          <img class="brand-logo" src="img/jerkycandy.png" alt="JerkyCandy" width="200" height="48" />
-        </span>
+      <a class="brand" href="#top" data-i18n-aria="aria_brand">
+        <img class="brand-logo" src="img/jerkycandy.png" alt="JerkyCandy" data-i18n-alt="logo_alt" width="200" height="48" />
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#game">Game</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#game" data-i18n="nav_game">Game</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <div class="lang-switch" role="group" aria-label="Site language">
+          <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-set-lang="ko" aria-pressed="false">한국어</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -675,30 +678,15 @@
     <section class="hero" id="top">
       <div class="hero-card">
         <div>
-          <div class="eyebrow"><span class="dot"></span> Indie Game Developer</div>
-          <h1><span>JerkyCandy</span></h1>
-          <p class="lead">
+          <div class="eyebrow"><span class="dot"></span> <span data-i18n="hero_eyebrow">Indie Game Developer</span></div>
+          <h1><span data-i18n="hero_brand">JerkyCandy</span></h1>
+          <p class="lead" data-i18n="hero_lead">
             JerkyCandy is an independent game developer who creates games with a focus on unique ideas and engaging gameplay.
             The goal is to build games that offer memorable experiences through creative mechanics and thoughtful design.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://store.steampowered.com/app/4353490/FOURVIVE/" target="_blank" rel="noopener noreferrer">View FOURVIVE on Steam</a>
-            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
-          </div>
-        </div>
-
-        <div class="hero-side">
-          <div class="info-tile">
-            <div class="info-label">Based in</div>
-            <div class="info-value">South Korea</div>
-          </div>
-          <div class="info-tile">
-            <div class="info-label">Working Style</div>
-            <div class="info-value">Solo Development</div>
-          </div>
-          <div class="info-tile">
-            <div class="info-label">Focus</div>
-            <div class="info-value">Gameplay-Driven Experiences</div>
+            <a class="btn btn-primary" href="https://store.steampowered.com/app/4353490/FOURVIVE/" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_steam">View FOURVIVE on Steam</a>
+            <a class="btn btn-secondary" href="#contact" data-i18n="hero_btn_contact">Get in Touch</a>
           </div>
         </div>
       </div>
@@ -708,21 +696,21 @@
       <section class="section" id="about">
         <div class="section-title">
           <div class="icon">👤</div>
-          <h2>About</h2>
+          <h2 data-i18n="about_h2">About</h2>
         </div>
         <p>
-          <strong style="color: var(--text);">JerkyCandy</strong> is a solo indie game developer based in South Korea.
+          <strong style="color: var(--text);" data-i18n="about_brand">JerkyCandy</strong><span data-i18n="about_body"> is a solo indie game developer based in South Korea.
           As a solo developer, JerkyCandy works on various aspects of game development, including design, programming, and implementation.
-          The focus is on creating gameplay-driven experiences and exploring new ideas through independent game projects.
+          The focus is on creating gameplay-driven experiences and exploring new ideas through independent game projects.</span>
         </p>
         <div class="about-grid">
           <div class="mini-card">
-            <strong>Creative Direction</strong>
-            From concept to execution, each project is built around a distinct gameplay identity and a strong player-facing idea.
+            <strong data-i18n="about_m1_title">Creative Direction</strong>
+            <span data-i18n="about_m1_body">From concept to execution, each project is built around a distinct gameplay identity and a strong player-facing idea.</span>
           </div>
           <div class="mini-card">
-            <strong>Full Development Scope</strong>
-            Design, programming, and implementation are handled through an end-to-end solo development process.
+            <strong data-i18n="about_m2_title">End-to-end solo development</strong>
+            <span data-i18n="about_m2_body">Planning, programming, and implementation are all done by one person alone, from the first idea to the finished build.</span>
           </div>
         </div>
       </section>
@@ -730,88 +718,224 @@
       <section class="section section-game" id="game">
         <div class="section-title">
           <div class="icon">🎮</div>
-          <h2>Game</h2>
+          <h2 data-i18n="game_h2">Game</h2>
         </div>
         <div class="game-showcase">
           <div class="game-showcase-inner">
             <div class="game-art-column">
-              <span class="game-art-label">Featured title</span>
-              <figure class="game-art-frame" aria-label="FOURVIVE cover art">
+              <span class="game-art-label" data-i18n="game_art_label">Featured title</span>
+              <figure class="game-art-frame" data-i18n-aria="game_figure_aria">
                 <div class="game-art-inner">
-                  <img class="game-boxart" src="img/fourvive_boxart.png" alt="FOURVIVE — co-op survival action" width="600" height="900" loading="lazy" />
+                  <img class="game-boxart" src="img/fourvive_boxart.png" alt="" data-i18n-alt="game_boxart_alt" width="600" height="900" loading="lazy" />
                 </div>
               </figure>
-              <p class="game-art-caption">Online co-op · Survival action · Up to 4 players</p>
+              <p class="game-art-caption" data-i18n="game_caption">Online co-op · Survival action · Up to 4 players</p>
             </div>
 
             <div class="game-copy-column">
-              <div class="game-badge">Featured project</div>
+              <div class="game-badge" data-i18n="game_badge">Featured project</div>
               <h3 class="game-title">FOURVIVE</h3>
-              <p class="game-lead">
-                FOURVIVE is an online co-op survival action game where up to four players team up,
-                wield a variety of weapons, and fight off waves of enemies together.
+              <p class="game-lead" data-i18n="game_lead">
+                FOURVIVE is an online co-op survival action game for up to four players who cooperate, use a wide range of weapons, and work together to take down enemies as they appear.
               </p>
               <ul class="feature-list">
                 <li class="feature-item">
                   <span class="feature-item-text">
-                    <strong>Up to 4 players co-op</strong>
-                    <span>Team up and survive together in online multiplayer sessions.</span>
+                    <strong data-i18n="game_f1_t">4-player online co-op</strong>
+                    <span data-i18n="game_f1_d">Up to four players join the same battles online.</span>
                   </span>
                 </li>
                 <li class="feature-item">
                   <span class="feature-item-text">
-                    <strong>Survival action combat</strong>
-                    <span>Face enemy waves with fast-paced combat and coordinated play.</span>
+                    <strong data-i18n="game_f2_t">Survival action combat</strong>
+                    <span data-i18n="game_f2_d">Fast-paced combat built on cooperation.</span>
                   </span>
                 </li>
                 <li class="feature-item">
                   <span class="feature-item-text">
-                    <strong>Weapon variety</strong>
-                    <span>Use different weapons and adapt to the flow of battle.</span>
+                    <strong data-i18n="game_f3_t">Diverse weapon system</strong>
+                    <span data-i18n="game_f3_d">Many weapon types to suit how you like to play.</span>
                   </span>
                 </li>
               </ul>
               <div class="game-cta-bar">
-                <a class="btn btn-primary" href="https://store.steampowered.com/app/4353490/FOURVIVE/" target="_blank" rel="noopener noreferrer">View on Steam</a>
-                <span class="game-cta-hint">Wishlist and follow updates on the store page.</span>
+                <a class="btn btn-primary" href="https://store.steampowered.com/app/4353490/FOURVIVE/" target="_blank" rel="noopener noreferrer" data-i18n="game_btn_steam">View on Steam</a>
+                <span class="game-cta-hint" data-i18n="game_cta_hint">Follow news and updates on Steam.</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="approach">
-        <div class="section-title">
-          <div class="icon">🛠️</div>
-          <h2>Development Approach</h2>
-        </div>
-        <p>
-          JerkyCandy focuses on gameplay-first design. Each project starts with a core gameplay idea and evolves through
-          experimentation and iteration to create an enjoyable player experience.
-        </p>
-      </section>
-
       <section class="section" id="contact">
         <div class="section-title">
           <div class="icon">✉️</div>
-          <h2>Contact</h2>
+          <h2 data-i18n="contact_h2">Contact</h2>
         </div>
         <div class="contact-grid">
           <div class="contact-card">
-            <strong>Email</strong>
-            <a href="mailto:jerkycandy@naver.com">jerkycandy@naver.com</a>
+            <a href="mailto:jerkycandydev@gmail.com">jerkycandydev@gmail.com</a>
           </div>
           <div class="contact-card">
-            <strong>Email</strong>
-            <a href="mailto:jerkycandydev@gmail.com">jerkycandydev@gmail.com</a>
+            <a href="mailto:jerkycandy@naver.com">jerkycandy@naver.com</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer data-i18n="footer">
       © 2026 JerkyCandy. All rights reserved.
     </footer>
   </div>
+  <script>
+(function () {
+  var STORAGE = "jerkycandy_site_lang";
+
+  var STR = {
+    en: {
+      meta_title: "JerkyCandy",
+      meta_desc: "JerkyCandy is a solo game developer.",
+      aria_brand: "JerkyCandy home",
+      logo_alt: "JerkyCandy",
+      hero_brand: "JerkyCandy",
+      about_brand: "JerkyCandy",
+      nav_about: "About",
+      nav_game: "Game",
+      nav_contact: "Contact",
+      lang_group: "Language",
+      hero_eyebrow: "Indie game developer",
+      hero_lead: "JerkyCandy is an indie game developer who pursues original ideas and immersive gameplay, and aims to make games that leave a lasting impression.",
+      hero_btn_steam: "View FOURVIVE on Steam",
+      hero_btn_contact: "Get in Touch",
+      about_h2: "About",
+      about_body: " is a solo indie game developer. They explore gameplay-first experiences and new ideas through independent projects.",
+      about_m1_title: "Creative direction",
+      about_m1_body: "From planning through release, each project is shaped around a clear gameplay identity and the core idea meant for players.",
+      about_m2_title: "End-to-end solo development",
+      about_m2_body: "Planning, programming, and implementation are all done by one person alone, from the first idea to the finished build.",
+      game_h2: "Game",
+      game_art_label: "Featured title",
+      game_figure_aria: "FOURVIVE cover art",
+      game_boxart_alt: "FOURVIVE — online co-op survival action",
+      game_caption: "Online co-op · Survival action · Up to 4 players",
+      game_badge: "Featured project",
+      game_lead: "FOURVIVE is an online co-op survival action game where up to four players team up, wield a variety of weapons, and fight off waves of enemies together.",
+      game_f1_t: "4-player online co-op",
+      game_f1_d: "Up to four players join the same battles online.",
+      game_f2_t: "Survival action combat",
+      game_f2_d: "Fast-paced combat built on cooperation.",
+      game_f3_t: "Diverse weapon system",
+      game_f3_d: "Many weapon types to suit how you like to play.",
+      game_btn_steam: "View on Steam",
+      game_cta_hint: "Follow news and updates on Steam.",
+      contact_h2: "Contact",
+      contact_email: "Email",
+      footer: "© 2026 JerkyCandy. All rights reserved."
+    },
+    ko: {
+      meta_title: "육포맛사탕",
+      meta_desc: "육포맛사탕은 1인 게임 개발자입니다.",
+      aria_brand: "육포맛사탕 홈",
+      logo_alt: "육포맛사탕",
+      hero_brand: "육포맛사탕",
+      about_brand: "육포맛사탕",
+      nav_about: "소개",
+      nav_game: "게임",
+      nav_contact: "문의",
+      lang_group: "사이트 언어",
+      hero_eyebrow: "인디 게임 개발자",
+      hero_lead: "육포맛사탕은 독창적인 아이디어와 몰입감 있는 플레이를 지향하는 1인 개발자입니다. 기억에 남는 경험을 담은 게임을 만들고자 합니다.",
+      hero_btn_steam: "Steam에서 FOURVIVE 보기",
+      hero_btn_contact: "문의하기",
+      about_h2: "소개",
+      about_body: "은 1인 게임 개발자입니다. 플레이 중심의 경험과 새로운 시도를 즐깁니다.",
+      about_m1_title: "개발 방향",
+      about_m1_body: "기획부터 완성까지, 각 프로젝트는 뚜렷한 게임플레이 정체성과 플레이어에게 전달하고 싶은 핵심 아이디어를 중심으로 구성됩니다.",
+      about_m2_title: "1인 개발",
+      about_m2_body: "기획, 프로그래밍을 1인 개발로 진행하고 있습니다.",
+      game_h2: "게임",
+      game_art_label: "대표 타이틀",
+      game_figure_aria: "FOURVIVE 표지 아트",
+      game_boxart_alt: "FOURVIVE — 온라인 협동 서바이벌 액션",
+      game_caption: "온라인 협동 · 서바이벌 액션 · 최대 4인",
+      game_badge: "대표 프로젝트",
+      game_lead: "FOURVIVE는 최대 4명이 협력해 다양한 무기를 활용하고 협동하여 등장하는 적을 처치하는 온라인 협동 생존 액션 게임입니다.",
+      game_f1_t: "4인 온라인 협동 플레이",
+      game_f1_d: "최대 4명의 플레이어가 온라인으로 함께 전투에 참여",
+      game_f2_t: "서바이벌 액션 전투",
+      game_f2_d: "빠른 템포의 전투와 협동.",
+      game_f3_t: "다양한 무기 시스템",
+      game_f3_d: "플레이 스타일에 맞는 여러 종류의 무기.",
+      game_btn_steam: "Steam에서 보기",
+      game_cta_hint: "스팀에서 소식을 확인할 수 있습니다.",
+      contact_h2: "문의",
+      contact_email: "이메일",
+      footer: "© 2026 JerkyCandy. All rights reserved."
+    }
+  };
+
+  function browserPrefersKorean() {
+    var langs = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < langs.length; i++) {
+      if (String(langs[i]).toLowerCase().indexOf("ko") === 0) return true;
+    }
+    return false;
+  }
+
+  function getInitialLang() {
+    try {
+      var s = localStorage.getItem(STORAGE);
+      if (s === "en" || s === "ko") return s;
+    } catch (e) {}
+    return browserPrefersKorean() ? "ko" : "en";
+  }
+
+  var lang = getInitialLang();
+
+  function apply() {
+    var t = STR[lang];
+    document.documentElement.lang = lang === "ko" ? "ko" : "en";
+    document.title = t.meta_title;
+    var meta = document.getElementById("meta-desc");
+    if (meta) meta.setAttribute("content", t.meta_desc);
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      if (k && t[k] !== undefined) el.textContent = t[k];
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-alt");
+      if (k && t[k] !== undefined) el.setAttribute("alt", t[k]);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria");
+      if (k && t[k] !== undefined) el.setAttribute("aria-label", t[k]);
+    });
+
+    var langGroup = document.querySelector(".lang-switch");
+    if (langGroup && t.lang_group) langGroup.setAttribute("aria-label", t.lang_group);
+
+    document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === lang ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var next = btn.getAttribute("data-set-lang");
+      if (next !== "en" && next !== "ko") return;
+      lang = next;
+      try {
+        localStorage.setItem(STORAGE, lang);
+      } catch (e) {}
+      apply();
+    });
+  });
+
+  apply();
+})();
+  </script>
 </body>
 </html>
