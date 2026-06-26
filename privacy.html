@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png" />
+  <link rel="manifest" href="favicon/manifest.json" />
+  <meta name="msapplication-config" content="favicon/browserconfig.xml" />
+  <title>Privacy Policy | JerkyCandy</title>
+  <meta id="meta-desc" name="description" content="Privacy Policy for JerkyCandy and FOURVIVE." />
+  <style>
+    :root {
+      --bg: #0a0c14;
+      --bg-soft: #111624;
+      --card: rgba(18, 24, 39, 0.82);
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #eef2ff;
+      --muted: #a9b3c9;
+      --accent: #8b5cf6;
+      --accent-2: #22d3ee;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius-xl: 28px;
+      --max: 860px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.22), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(34, 211, 238, 0.16), transparent 26%),
+        radial-gradient(circle at 80% 85%, rgba(244, 114, 182, 0.14), transparent 25%),
+        linear-gradient(180deg, #070912 0%, #0a0c14 50%, #070912 100%);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    a { color: #b7c7ff; text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+
+    .grid-bg::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 9, 18, 0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      line-height: 0;
+    }
+
+    .brand-logo {
+      display: block;
+      height: clamp(32px, 4.5vw, 44px);
+      width: auto;
+      max-width: min(220px, 55vw);
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 0.96rem;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .lang-switch .lang-btn {
+      margin: 0;
+      padding: 9px 14px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .lang-switch .lang-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .lang-switch .lang-btn[aria-pressed="true"] {
+      color: var(--text);
+      background: rgba(139, 92, 246, 0.22);
+    }
+
+    .lang-switch .lang-btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    html[lang="ko"] body {
+      font-family:
+        "Pretendard Variable", Pretendard, "Malgun Gothic", "Apple SD Gothic Neo",
+        Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    main {
+      padding: 48px 0 72px;
+    }
+
+    .doc-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 5vw, 44px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .doc-card h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .doc-meta {
+      margin: 0 0 32px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .policy-section + .policy-section {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .policy-section h2 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .policy-section p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .policy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section ul {
+      margin: 0 0 12px;
+      padding-left: 1.25rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .policy-section li + li {
+      margin-top: 6px;
+    }
+
+    footer {
+      padding: 0 0 48px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #c5cee6;
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" data-i18n-aria="aria_home">
+        <img class="brand-logo" src="img/jerkycandy.png" alt="JerkyCandy" data-i18n-alt="logo_alt" width="200" height="48" />
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
+        <div class="lang-switch" role="group" aria-label="Site language">
+          <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-set-lang="ko" aria-pressed="false">한국어</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <article class="doc-card">
+        <h1 data-i18n="title">Privacy Policy</h1>
+        <p class="doc-meta" data-i18n="effective">Effective date: June 26, 2026</p>
+
+        <section class="policy-section">
+          <h2 data-i18n="s1_h">1. Introduction</h2>
+          <p data-i18n="s1_p1">JerkyCandy ("we", "us") operates this website and develops the game FOURVIVE. This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.</p>
+          <p data-i18n="s1_p2">By using our website or playing FOURVIVE, you agree to the collection and use of information as described in this policy.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s2_h">2. Information We Collect</h2>
+          <p><strong style="color: var(--text);" data-i18n="s2_p1">Website</strong></p>
+          <ul>
+            <li data-i18n="s2_l1">Language preference stored in your browser's local storage.</li>
+            <li data-i18n="s2_l2">Basic access logs (such as IP address, browser type, and visit time) that may be recorded by our web hosting provider.</li>
+            <li data-i18n="s2_l3">Information you voluntarily provide when contacting us by email (such as your email address and message content).</li>
+          </ul>
+          <p><strong style="color: var(--text);" data-i18n="s2_p2">FOURVIVE (game)</strong></p>
+          <ul>
+            <li data-i18n="s2_l4">Platform account identifiers and display names (via Steam and/or Epic Online Services).</li>
+            <li data-i18n="s2_l5">Profile images provided by the platform (e.g., Steam avatar).</li>
+            <li data-i18n="s2_l6">Game progress, settings, customization data, and save files.</li>
+            <li data-i18n="s2_l7">Gameplay statistics used for leaderboards, rankings, and achievements.</li>
+            <li data-i18n="s2_l8">Multiplayer session data necessary for online co-op play (such as network identifiers and in-session game state).</li>
+            <li data-i18n="s2_l9">Diagnostic or crash-related information if you submit a report or if error logging is enabled.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s3_h">3. How We Use Information</h2>
+          <p data-i18n="s3_p1">We use the information described above to:</p>
+          <ul>
+            <li data-i18n="s3_l1">Operate and maintain this website.</li>
+            <li data-i18n="s3_l2">Provide, operate, and improve FOURVIVE and its online features.</li>
+            <li data-i18n="s3_l3">Enable multiplayer connectivity, matchmaking, and co-op sessions.</li>
+            <li data-i18n="s3_l4">Save and sync your game data across devices.</li>
+            <li data-i18n="s3_l5">Display leaderboards, rankings, and achievements.</li>
+            <li data-i18n="s3_l6">Respond to inquiries and support requests.</li>
+            <li data-i18n="s3_l7">Diagnose technical issues and improve stability.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s4_h">4. Third-Party Services</h2>
+          <p data-i18n="s4_p1">FOURVIVE uses third-party platform services that have their own privacy policies:</p>
+          <ul>
+            <li data-i18n="s4_l1">Valve (Steam) — account authentication, networking, cloud saves, achievements, and related Steam services.</li>
+            <li data-i18n="s4_l2">Epic Games (Epic Online Services) — cross-platform authentication, player data storage, lobbies, networking, and leaderboards.</li>
+          </ul>
+          <p data-i18n="s4_p2">We do not control how these third parties process your data. Please review their respective privacy policies for more information.</p>
+          <p data-i18n="s4_p3">Links on this website to external services (such as Steam or Discord) are governed by those services' own policies.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s5_h">5. Data Retention</h2>
+          <p data-i18n="s5_p1">We retain information only as long as necessary for the purposes described in this policy, or as required by applicable law.</p>
+          <p data-i18n="s5_p2">Game save data and leaderboard records may be retained while your platform account remains active and while the game services are operational. You may request deletion of data we directly control by contacting us (see Section 9).</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s6_h">6. Your Rights</h2>
+          <p data-i18n="s6_p1">Depending on your location, you may have rights to access, correct, delete, or restrict the processing of your personal information.</p>
+          <p data-i18n="s6_p2">To exercise these rights, please contact us using the email addresses below. We will respond within a reasonable time frame.</p>
+          <p data-i18n="s6_p3">Some data (such as platform account information or cloud saves) may also be managed through Steam or Epic account settings.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s7_h">7. Children's Privacy</h2>
+          <p data-i18n="s7_p1">FOURVIVE and this website are not directed at children under the age required by applicable law (generally under 14 in South Korea, or under 13 in certain other jurisdictions) without parental consent.</p>
+          <p data-i18n="s7_p2">If you believe we have collected personal information from a child without appropriate consent, please contact us and we will take steps to delete it.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s8_h">8. Security</h2>
+          <p data-i18n="s8_p1">We take reasonable measures to protect your information. However, no method of transmission or storage over the Internet is completely secure, and we cannot guarantee absolute security.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s9_h">9. Contact</h2>
+          <p data-i18n="s9_p1">If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact:</p>
+          <p>
+            <strong style="color: var(--text);">JerkyCandy</strong><br />
+            <a href="mailto:jerkycandydev@gmail.com">jerkycandydev@gmail.com</a><br />
+            <a href="mailto:jerkycandy@naver.com">jerkycandy@naver.com</a>
+          </p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s10_h">10. Changes to This Policy</h2>
+          <p data-i18n="s10_p1">We may update this Privacy Policy from time to time. When we do, we will revise the effective date at the top of this page. Continued use of our website or game after changes constitutes acceptance of the updated policy.</p>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <span data-i18n="footer">© 2026 JerkyCandy. All rights reserved.</span>
+      · <a href="index.html" data-i18n="footer_home">Home</a>
+    </footer>
+  </div>
+
+  <script>
+(function () {
+  var STORAGE = "jerkycandy_site_lang";
+
+  var STR = {
+    en: {
+      meta_title: "Privacy Policy | JerkyCandy",
+      meta_desc: "Privacy Policy for JerkyCandy and FOURVIVE.",
+      aria_home: "JerkyCandy home",
+      logo_alt: "JerkyCandy",
+      nav_home: "Home",
+      lang_group: "Language",
+      title: "Privacy Policy",
+      effective: "Effective date: June 26, 2026",
+      s1_h: "1. Introduction",
+      s1_p1: "JerkyCandy (\"we\", \"us\") operates this website and develops the game FOURVIVE. This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.",
+      s1_p2: "By using our website or playing FOURVIVE, you agree to the collection and use of information as described in this policy.",
+      s2_h: "2. Information We Collect",
+      s2_p1: "Website",
+      s2_l1: "Language preference stored in your browser's local storage.",
+      s2_l2: "Basic access logs (such as IP address, browser type, and visit time) that may be recorded by our web hosting provider.",
+      s2_l3: "Information you voluntarily provide when contacting us by email (such as your email address and message content).",
+      s2_p2: "FOURVIVE (game)",
+      s2_l4: "Platform account identifiers and display names (via Steam and/or Epic Online Services).",
+      s2_l5: "Profile images provided by the platform (e.g., Steam avatar).",
+      s2_l6: "Game progress, settings, customization data, and save files.",
+      s2_l7: "Gameplay statistics used for leaderboards, rankings, and achievements.",
+      s2_l8: "Multiplayer session data necessary for online co-op play (such as network identifiers and in-session game state).",
+      s2_l9: "Diagnostic or crash-related information if you submit a report or if error logging is enabled.",
+      s3_h: "3. How We Use Information",
+      s3_p1: "We use the information described above to:",
+      s3_l1: "Operate and maintain this website.",
+      s3_l2: "Provide, operate, and improve FOURVIVE and its online features.",
+      s3_l3: "Enable multiplayer connectivity, matchmaking, and co-op sessions.",
+      s3_l4: "Save and sync your game data across devices.",
+      s3_l5: "Display leaderboards, rankings, and achievements.",
+      s3_l6: "Respond to inquiries and support requests.",
+      s3_l7: "Diagnose technical issues and improve stability.",
+      s4_h: "4. Third-Party Services",
+      s4_p1: "FOURVIVE uses third-party platform services that have their own privacy policies:",
+      s4_l1: "Valve (Steam) — account authentication, networking, cloud saves, achievements, and related Steam services.",
+      s4_l2: "Epic Games (Epic Online Services) — cross-platform authentication, player data storage, lobbies, networking, and leaderboards.",
+      s4_p2: "We do not control how these third parties process your data. Please review their respective privacy policies for more information.",
+      s4_p3: "Links on this website to external services (such as Steam or Discord) are governed by those services' own policies.",
+      s5_h: "5. Data Retention",
+      s5_p1: "We retain information only as long as necessary for the purposes described in this policy, or as required by applicable law.",
+      s5_p2: "Game save data and leaderboard records may be retained while your platform account remains active and while the game services are operational. You may request deletion of data we directly control by contacting us (see Section 9).",
+      s6_h: "6. Your Rights",
+      s6_p1: "Depending on your location, you may have rights to access, correct, delete, or restrict the processing of your personal information.",
+      s6_p2: "To exercise these rights, please contact us using the email addresses below. We will respond within a reasonable time frame.",
+      s6_p3: "Some data (such as platform account information or cloud saves) may also be managed through Steam or Epic account settings.",
+      s7_h: "7. Children's Privacy",
+      s7_p1: "FOURVIVE and this website are not directed at children under the age required by applicable law (generally under 14 in South Korea, or under 13 in certain other jurisdictions) without parental consent.",
+      s7_p2: "If you believe we have collected personal information from a child without appropriate consent, please contact us and we will take steps to delete it.",
+      s8_h: "8. Security",
+      s8_p1: "We take reasonable measures to protect your information. However, no method of transmission or storage over the Internet is completely secure, and we cannot guarantee absolute security.",
+      s9_h: "9. Contact",
+      s9_p1: "If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact:",
+      s10_h: "10. Changes to This Policy",
+      s10_p1: "We may update this Privacy Policy from time to time. When we do, we will revise the effective date at the top of this page. Continued use of our website or game after changes constitutes acceptance of the updated policy.",
+      footer: "© 2026 JerkyCandy. All rights reserved.",
+      footer_home: "Home"
+    },
+    ko: {
+      meta_title: "개인정보처리방침 | 육포맛사탕",
+      meta_desc: "육포맛사탕 및 FOURVIVE 개인정보처리방침.",
+      aria_home: "육포맛사탕 홈",
+      logo_alt: "육포맛사탕",
+      nav_home: "홈",
+      lang_group: "사이트 언어",
+      title: "개인정보처리방침",
+      effective: "시행일: 2026년 6월 26일",
+      s1_h: "1. 총칙",
+      s1_p1: "육포맛사탕(JerkyCandy, 이하 \"회사\")은 본 웹사이트를 운영하고 게임 FOURVIVE를 개발·제공합니다. 본 개인정보처리방침은 회사가 수집하는 정보, 이용 목적, 정보주체의 권리에 대해 설명합니다.",
+      s1_p2: "본 웹사이트를 이용하거나 FOURVIVE를 플레이함으로써, 본 방침에 따른 정보 수집 및 이용에 동의하는 것으로 간주됩니다.",
+      s2_h: "2. 수집하는 개인정보",
+      s2_p1: "웹사이트",
+      s2_l1: "브라우저 로컬 저장소에 저장되는 언어 설정 정보.",
+      s2_l2: "웹 호스팅 제공자가 기록할 수 있는 기본 접속 로그(IP 주소, 브라우저 종류, 방문 시간 등).",
+      s2_l3: "이메일로 문의할 때 자발적으로 제공하는 정보(이메일 주소, 문의 내용 등).",
+      s2_p2: "FOURVIVE (게임)",
+      s2_l4: "플랫폼 계정 식별자 및 표시 이름(Steam 및/또는 Epic Online Services를 통해).",
+      s2_l5: "플랫폼에서 제공하는 프로필 이미지(예: Steam 아바타).",
+      s2_l6: "게임 진행도, 설정, 커스터마이징 데이터 및 저장 파일.",
+      s2_l7: "리더보드, 랭킹, 업적에 사용되는 게임플레이 통계.",
+      s2_l8: "온라인 협동 플레이에 필요한 멀티플레이 세션 데이터(네트워크 식별자, 세션 내 게임 상태 등).",
+      s2_l9: "오류 보고를 제출하거나 오류 로깅이 활성화된 경우의 진단·크래시 관련 정보.",
+      s3_h: "3. 개인정보의 이용 목적",
+      s3_p1: "회사는 수집한 정보를 다음 목적으로 이용합니다.",
+      s3_l1: "웹사이트 운영 및 유지.",
+      s3_l2: "FOURVIVE 및 온라인 기능 제공, 운영, 개선.",
+      s3_l3: "멀티플레이 연결, 매칭, 협동 세션 지원.",
+      s3_l4: "기기 간 게임 데이터 저장 및 동기화.",
+      s3_l5: "리더보드, 랭킹, 업적 표시.",
+      s3_l6: "문의 및 지원 요청 응대.",
+      s3_l7: "기술적 문제 진단 및 안정성 개선.",
+      s4_h: "4. 제3자 서비스",
+      s4_p1: "FOURVIVE는 자체 개인정보처리방침을 가진 제3자 플랫폼 서비스를 사용합니다.",
+      s4_l1: "Valve (Steam) — 계정 인증, 네트워킹, 클라우드 저장, 업적 및 관련 Steam 서비스.",
+      s4_l2: "Epic Games (Epic Online Services) — 크로스플랫폼 인증, 플레이어 데이터 저장, 로비, 네트워킹, 리더보드.",
+      s4_p2: "회사는 해당 제3자가 정보를 처리하는 방식을 통제하지 않습니다. 자세한 내용은 각 서비스의 개인정보처리방침을 참고해 주세요.",
+      s4_p3: "본 웹사이트의 외부 서비스 링크(Steam, Discord 등)는 해당 서비스의 정책이 적용됩니다.",
+      s5_h: "5. 보유 및 이용 기간",
+      s5_p1: "회사는 본 방침에 명시된 목적에 필요한 기간 동안, 또는 관련 법령에서 정한 기간 동안 정보만 보유합니다.",
+      s5_p2: "게임 저장 데이터 및 리더보드 기록은 플랫폼 계정이 활성 상태이고 게임 서비스가 운영되는 동안 보유될 수 있습니다. 회사가 직접 관리하는 데이터의 삭제를 요청하려면 아래 연락처(9조)로 문의해 주세요.",
+      s6_h: "6. 정보주체의 권리",
+      s6_p1: "거주 지역에 따라 개인정보에 대한 열람, 정정, 삭제, 처리 제한 등의 권리를 가질 수 있습니다.",
+      s6_p2: "해당 권리를 행사하려면 아래 이메일로 연락해 주세요. 합리적인 기간 내에 답변드리겠습니다.",
+      s6_p3: "일부 데이터(플랫폼 계정 정보, 클라우드 저장 등)는 Steam 또는 Epic 계정 설정을 통해서도 관리할 수 있습니다.",
+      s7_h: "7. 아동의 개인정보",
+      s7_p1: "FOURVIVE 및 본 웹사이트는 관련 법령에서 요구하는 연령(대한민국 기준 일반적으로 만 14세 미만, 기타 일부 지역에서는 만 13세 미만) 미만 아동을 대상으로 하지 않으며, 보호자 동의 없이 해당 연령 미만 아동의 개인정보를 고의로 수집하지 않습니다.",
+      s7_p2: "보호자 동의 없이 아동의 개인정보가 수집되었다고 판단되면 연락해 주시면 삭제 조치를 취하겠습니다.",
+      s8_h: "8. 안전성 확보 조치",
+      s8_p1: "회사는 정보 보호를 위해 합리적인 조치를 취합니다. 다만 인터넷을 통한 전송 및 저장 방식은 완전히 안전할 수 없으며, 절대적인 보안을 보장할 수는 없습니다.",
+      s9_h: "9. 문의",
+      s9_p1: "본 개인정보처리방침에 관한 문의 또는 개인정보 권리 행사는 아래로 연락해 주세요.",
+      s10_h: "10. 방침 변경",
+      s10_p1: "회사는 본 개인정보처리방침을 수시로 변경할 수 있습니다. 변경 시 본 페이지 상단의 시행일을 갱신합니다. 변경 후에도 웹사이트 또는 게임을 계속 이용하면 변경된 방침에 동의한 것으로 간주됩니다.",
+      footer: "© 2026 JerkyCandy. All rights reserved.",
+      footer_home: "홈"
+    }
+  };
+
+  function browserPrefersKorean() {
+    var langs = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < langs.length; i++) {
+      if (String(langs[i]).toLowerCase().indexOf("ko") === 0) return true;
+    }
+    return false;
+  }
+
+  function getInitialLang() {
+    try {
+      var s = localStorage.getItem(STORAGE);
+      if (s === "en" || s === "ko") return s;
+    } catch (e) {}
+    return browserPrefersKorean() ? "ko" : "en";
+  }
+
+  var lang = getInitialLang();
+
+  function apply() {
+    var t = STR[lang];
+    document.documentElement.lang = lang === "ko" ? "ko" : "en";
+    document.title = t.meta_title;
+    var meta = document.getElementById("meta-desc");
+    if (meta) meta.setAttribute("content", t.meta_desc);
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      if (k && t[k] !== undefined) el.textContent = t[k];
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-alt");
+      if (k && t[k] !== undefined) el.setAttribute("alt", t[k]);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria");
+      if (k && t[k] !== undefined) el.setAttribute("aria-label", t[k]);
+    });
+
+    var langGroup = document.querySelector(".lang-switch");
+    if (langGroup && t.lang_group) langGroup.setAttribute("aria-label", t.lang_group);
+
+    document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === lang ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var next = btn.getAttribute("data-set-lang");
+      if (next !== "en" && next !== "ko") return;
+      lang = next;
+      try {
+        localStorage.setItem(STORAGE, lang);
+      } catch (e) {}
+      apply();
+    });
+  });
+
+  apply();
+})();
+  </script>
+</body>
+</html>
