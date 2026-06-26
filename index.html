@@ -606,6 +606,14 @@
       font-size: 0.95rem;
     }
 
+    footer a {
+      color: #c5cee6;
+    }
+
+    footer a:hover {
+      color: var(--accent-2);
+    }
+
     @media (max-width: 980px) {
       .hero-card {
         padding: 30px;
@@ -806,8 +814,9 @@
       </section>
     </main>
 
-    <footer data-i18n="footer">
-      © 2026 JerkyCandy. All rights reserved.
+    <footer>
+      <span data-i18n="footer">© 2026 JerkyCandy. All rights reserved.</span>
+      · <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
     </footer>
   </div>
   <script>
@@ -855,7 +864,8 @@
       game_cta_hint: "Steam for updates · Discord for the community.",
       contact_h2: "Contact",
       contact_email: "Email",
-      footer: "© 2026 JerkyCandy. All rights reserved."
+      footer: "© 2026 JerkyCandy. All rights reserved.",
+      footer_privacy: "Privacy Policy"
     },
     ko: {
       meta_title: "육포맛사탕",
@@ -897,7 +907,8 @@
       game_cta_hint: "스팀에서 업데이트 · 디스코드에서 커뮤니티",
       contact_h2: "문의",
       contact_email: "이메일",
-      footer: "© 2026 JerkyCandy. All rights reserved."
+      footer: "© 2026 JerkyCandy. All rights reserved.",
+      footer_privacy: "개인정보처리방침"
     }
   };
 
