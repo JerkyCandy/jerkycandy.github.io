@@ -411,7 +411,7 @@
 
         <div class="app-identity">
           <div class="identity-badge"><span data-i18n="badge_app">App</span> FOURVIVE</div>
-          <div class="identity-badge"><span data-i18n="badge_dev">Developer</span> JerkyCandy</div>
+          <div class="identity-badge"><span data-i18n="badge_dev">Developer</span> <span data-i18n="dev_name">JerkyCandy</span></div>
         </div>
 
         <section class="steps-box" aria-labelledby="steps-heading">
@@ -495,7 +495,7 @@
           <h2 data-i18n="s4_h">Contact</h2>
           <p data-i18n="s4_p1">For questions about this page or data related to FOURVIVE:</p>
           <p>
-            <strong style="color: var(--text);">JerkyCandy</strong><br />
+            <strong style="color: var(--text);" data-i18n="dev_name">JerkyCandy</strong><br />
             <span data-i18n="s4_app">App: FOURVIVE</span><br />
             <a href="mailto:jerkycandydev@gmail.com">jerkycandydev@gmail.com</a><br />
             <a href="mailto:jerkycandy@naver.com">jerkycandy@naver.com</a>
@@ -525,6 +525,7 @@
       updated: "Last updated: June 29, 2026",
       badge_app: "App",
       badge_dev: "Developer",
+      dev_name: "JerkyCandy",
       steps_h: "How to request account and data deletion",
       step1_t: "Remove local app data on your device",
       step1_p: "Uninstall FOURVIVE from your device, or open your device settings and clear the app's storage (app data). This removes save files, settings, and other data stored locally on your device.",
@@ -574,19 +575,20 @@
       updated: "최종 업데이트: 2026년 6월 29일",
       badge_app: "앱",
       badge_dev: "개발자",
+      dev_name: "육포맛사탕",
       steps_h: "계정 및 데이터 삭제 요청 방법",
       step1_t: "기기에서 앱 로컬 데이터 삭제",
       step1_p: "기기에서 FOURVIVE를 삭제(제거)하거나, 기기 설정에서 해당 앱의 저장공간(앱 데이터)을 삭제하세요. 저장 파일, 설정 등 기기에 저장된 데이터가 제거됩니다.",
       step2_t: "Epic Games 계정 삭제 또는 관리 (해당되는 경우)",
-      step2_p: "FOURVIVE는 Epic Games(Epic Online Services / OAuth)를 통해 로그인합니다. 육포맛사탕(JerkyCandy)은 별도의 게임 계정을 만들거나 운영하지 않습니다. Epic Games 계정 및 Epic이 보관하는 데이터를 삭제하려면 아래 Epic Games 계정 삭제 절차를 따르세요.",
+      step2_p: "FOURVIVE는 Epic Games(Epic Online Services) 계정으로 로그인합니다. 앱에서 따로 가입하는 계정은 없습니다. Epic 쪽에 남은 데이터를 삭제하려면 아래 절차를 따르세요.",
       step2_link: "Epic Games 도움말 — 계정 삭제",
       step3_t: "도움이 필요하면 문의",
       step3_p: "FOURVIVE와 관련된 데이터에 대해 문의가 있으면",
       step3_or: " 또는 ",
       step3_tail: "으로 이메일을 보내 주세요. 합리적인 기간 내에 답변드리겠습니다.",
-      s1_h: "FOURVIVE의 계정 구조",
-      s1_p1: "FOURVIVE는 육포맛사탕 전용 계정을 생성할 수 없으며, 육포맛사탕 자체 서버에 사용자 계정 데이터베이스를 저장하지 않습니다.",
-      s1_p2: "로그인은 Epic Games(Epic Online Services) OAuth를 통해 이루어집니다. Epic Games 계정은 육포맛사탕이 아닌 Epic Games에서 관리합니다.",
+      s1_h: "계정 안내",
+      s1_p1: "FOURVIVE는 Epic Games 계정으로만 로그인합니다. 앱에서 따로 가입하는 계정은 없고, 개발사 서버에 회원 정보를 저장하지도 않습니다.",
+      s1_p2: "계정 생성·삭제·관리는 Epic Games에서 처리합니다.",
       s2_h: "삭제되는 데이터와 보관되는 데이터",
       tbl_col_data: "데이터 유형",
       tbl_col_action: "삭제 시 처리",
@@ -599,18 +601,18 @@
       tbl_r2_retention: "Epic은 자체 정책 및 법적 요구에 따라 데이터를 보관할 수 있습니다. 자세한 내용은 Epic 개인정보처리방침을 참고하세요.",
       tbl_r3_data: "Epic Online Services를 통한 온라인 기능 (멀티플레이 세션, 로비, 리더보드 등)",
       tbl_r3_action: "세션 데이터는 세션 종료 시 종료됩니다. 지속적인 플랫폼 측 기록이 있는 경우 Epic Online Services에서 처리합니다.",
-      tbl_r3_retention: "육포맛사탕은 이러한 기능을 위한 별도 서버를 운영하지 않습니다. 보관 여부는 Epic 약관 및 정책을 따릅니다.",
-      tbl_r4_data: "육포맛사탕에 보낸 지원 이메일",
+      tbl_r3_retention: "개발사가 이 기능용 서버를 따로 두지 않습니다. 보관 여부는 Epic 약관·정책을 따릅니다.",
+      tbl_r4_data: "개발사에 보낸 문의 이메일",
       tbl_r4_action: "요청 시 삭제합니다. 위 이메일 주소로 문의해 주세요.",
       tbl_r4_retention: "문의 응대에 필요한 기간 동안만 보관하며, 법령상 더 긴 보관이 필요한 경우는 해당 기간을 따릅니다.",
-      s2_note: "FOURVIVE는 자체 사용자 계정 시스템을 운영하지 않으므로, 육포맛사탕이 제공하는 앱 내 \"계정 삭제\" 버튼은 없습니다. 로컬 앱 데이터 삭제와 Epic Games 계정 관리가 해당되는 절차입니다.",
+      s2_note: "앱 전용 계정이 없기 때문에 앱 안의 \"계정 삭제\" 메뉴도 없습니다. 기기에서 앱 데이터를 지우고, Epic Games 계정을 관리·삭제하면 됩니다.",
       s3_h: "제3자 서비스",
       s3_p1: "Android용 FOURVIVE는 로그인(OAuth)에 Epic Online Services를 사용합니다. Epic Games는 자체 개인정보처리방침에 따라 계정 및 플랫폼 관련 데이터를 처리합니다.",
       s3_p2: "PC의 Steam 등 다른 플랫폼은 각자의 계정 시스템을 사용합니다. 해당 플랫폼에서의 계정 삭제는 각 제공자가 관리합니다.",
       s4_h: "문의",
       s4_p1: "본 페이지 또는 FOURVIVE 관련 데이터에 대한 문의:",
       s4_app: "앱: FOURVIVE",
-      footer: "© 2026 JerkyCandy. All rights reserved."
+      footer: "© 2026 육포맛사탕. All rights reserved."
     }
   };
 
