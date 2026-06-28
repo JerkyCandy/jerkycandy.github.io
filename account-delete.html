@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png" />
+  <link rel="manifest" href="favicon/manifest.json" />
+  <meta name="msapplication-config" content="favicon/browserconfig.xml" />
+  <title>Account Deletion | JerkyCandy</title>
+  <meta id="meta-desc" name="description" content="How to delete your account and data for FOURVIVE by JerkyCandy." />
+  <style>
+    :root {
+      --bg: #0a0c14;
+      --bg-soft: #111624;
+      --card: rgba(18, 24, 39, 0.82);
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #eef2ff;
+      --muted: #a9b3c9;
+      --accent: #8b5cf6;
+      --accent-2: #22d3ee;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius-xl: 28px;
+      --max: 860px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.22), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(34, 211, 238, 0.16), transparent 26%),
+        radial-gradient(circle at 80% 85%, rgba(244, 114, 182, 0.14), transparent 25%),
+        linear-gradient(180deg, #070912 0%, #0a0c14 50%, #070912 100%);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    a { color: #b7c7ff; text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+
+    .grid-bg::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 9, 18, 0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      line-height: 0;
+    }
+
+    .brand-logo {
+      display: block;
+      height: clamp(32px, 4.5vw, 44px);
+      width: auto;
+      max-width: min(220px, 55vw);
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 0.96rem;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .lang-switch .lang-btn {
+      margin: 0;
+      padding: 9px 14px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .lang-switch .lang-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .lang-switch .lang-btn[aria-pressed="true"] {
+      color: var(--text);
+      background: rgba(139, 92, 246, 0.22);
+    }
+
+    .lang-switch .lang-btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    html[lang="ko"] body {
+      font-family:
+        "Pretendard Variable", Pretendard, "Malgun Gothic", "Apple SD Gothic Neo",
+        Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    main {
+      padding: 48px 0 72px;
+    }
+
+    .doc-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 5vw, 44px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .doc-card h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .doc-meta {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .app-identity {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 28px;
+    }
+
+    .identity-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.14);
+      border: 1px solid rgba(139, 92, 246, 0.28);
+      color: #e9e4ff;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .identity-badge span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .steps-box {
+      margin: 0 0 32px;
+      padding: clamp(22px, 4vw, 28px);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(34, 211, 238, 0.08));
+      border: 2px solid rgba(139, 92, 246, 0.35);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    }
+
+    .steps-box h2 {
+      margin: 0 0 18px;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .steps-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .steps-list li {
+      position: relative;
+      counter-increment: step;
+      margin: 0;
+      padding: 0 0 0 52px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .steps-list li + li {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .steps-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+    }
+
+    .steps-list li + li::before {
+      top: 18px;
+    }
+
+    .steps-list strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .steps-list p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .steps-list p a {
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .policy-section + .policy-section {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .policy-section h2 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .policy-section p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .policy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section ul {
+      margin: 0 0 12px;
+      padding-left: 1.25rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .policy-section li + li {
+      margin-top: 6px;
+    }
+
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 0 0 12px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      vertical-align: top;
+    }
+
+    .data-table th {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .data-table td {
+      color: var(--muted);
+    }
+
+    .note-box {
+      margin: 12px 0 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      padding: 0 0 48px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #c5cee6;
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 10px 12px;
+        font-size: 0.88rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" data-i18n-aria="aria_home">
+        <img class="brand-logo" src="img/jerkycandy.png" alt="JerkyCandy" data-i18n-alt="logo_alt" width="200" height="48" />
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
+        <div class="lang-switch" role="group" aria-label="Site language">
+          <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-set-lang="ko" aria-pressed="false">한국어</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <article class="doc-card">
+        <h1 data-i18n="title">Account &amp; Data Deletion</h1>
+        <p class="doc-meta" data-i18n="updated">Last updated: June 29, 2026</p>
+
+        <div class="app-identity">
+          <div class="identity-badge"><span data-i18n="badge_app">App</span> FOURVIVE</div>
+          <div class="identity-badge"><span data-i18n="badge_dev">Developer</span> JerkyCandy</div>
+        </div>
+
+        <section class="steps-box" aria-labelledby="steps-heading">
+          <h2 id="steps-heading" data-i18n="steps_h">How to request account and data deletion</h2>
+          <ol class="steps-list">
+            <li>
+              <strong data-i18n="step1_t">Remove local app data on your device</strong>
+              <p data-i18n="step1_p">Uninstall FOURVIVE from your device, or open your device settings and clear the app's storage (app data). This removes save files, settings, and other data stored locally on your device.</p>
+            </li>
+            <li>
+              <strong data-i18n="step2_t">Delete or manage your Epic Games account (if applicable)</strong>
+              <p>
+                <span data-i18n="step2_p">FOURVIVE signs you in through Epic Games (Epic Online Services / OAuth). JerkyCandy does not create or operate a separate game account. To delete your Epic Games account and any data held by Epic, follow Epic's account deletion process:</span>
+                <a href="https://www.epicgames.com/help/en-US/c-Category_EpicAccount/c-AccountSecurity/how-do-i-delete-my-epic-games-account-a000084672" target="_blank" rel="noopener noreferrer" data-i18n="step2_link">Epic Games Help — Delete your account</a>
+              </p>
+            </li>
+            <li>
+              <strong data-i18n="step3_t">Contact us if you need assistance</strong>
+              <p>
+                <span data-i18n="step3_p">If you have questions about data associated with FOURVIVE, email us at</span>
+                <a href="mailto:jerkycandydev@gmail.com">jerkycandydev@gmail.com</a>
+                <span data-i18n="step3_or"> or </span>
+                <a href="mailto:jerkycandy@naver.com">jerkycandy@naver.com</a><span data-i18n="step3_tail">. We will respond within a reasonable time.</span>
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s1_h">About accounts in FOURVIVE</h2>
+          <p data-i18n="s1_p1">FOURVIVE does not let you create a separate JerkyCandy account and does not store user account databases on JerkyCandy's own servers.</p>
+          <p data-i18n="s1_p2">Sign-in is handled through Epic Games (Epic Online Services) using OAuth. Your Epic Games account is managed by Epic Games, not by JerkyCandy.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s2_h">Data deleted vs. retained</h2>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="tbl_col_data">Data type</th>
+                  <th scope="col" data-i18n="tbl_col_action">What happens when you delete</th>
+                  <th scope="col" data-i18n="tbl_col_retention">Additional retention</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-i18n="tbl_r1_data">Local app data (save files, settings, customization, cache)</td>
+                  <td data-i18n="tbl_r1_action">Deleted when you uninstall the app or clear app data in device settings.</td>
+                  <td data-i18n="tbl_r1_retention">None on your device after uninstall or app data clear. Deletion is immediate.</td>
+                </tr>
+                <tr>
+                  <td data-i18n="tbl_r2_data">Epic Games account information (account ID, display name, authentication tokens)</td>
+                  <td data-i18n="tbl_r2_action">Managed by Epic Games. Delete or manage through your Epic account settings.</td>
+                  <td data-i18n="tbl_r2_retention">Epic may retain data according to its own policies and legal requirements. See Epic's privacy policy for details.</td>
+                </tr>
+                <tr>
+                  <td data-i18n="tbl_r3_data">Online features via Epic Online Services (e.g., multiplayer sessions, lobbies, leaderboards)</td>
+                  <td data-i18n="tbl_r3_action">Session data ends when you leave a session. Persistent platform-side records, if any, are handled by Epic Online Services.</td>
+                  <td data-i18n="tbl_r3_retention">JerkyCandy does not operate separate servers for these features. Any retention follows Epic's terms and policies.</td>
+                </tr>
+                <tr>
+                  <td data-i18n="tbl_r4_data">Support emails you send to JerkyCandy</td>
+                  <td data-i18n="tbl_r4_action">Deleted upon request. Contact us using the email addresses above.</td>
+                  <td data-i18n="tbl_r4_retention">Kept only as long as needed to respond to your inquiry, unless a longer period is required by law.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box" data-i18n="s2_note">Because FOURVIVE does not maintain its own user account system, there is no in-app "delete account" button operated by JerkyCandy. Removing local app data and managing your Epic Games account are the steps that apply.</div>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s3_h">Third-party services</h2>
+          <p data-i18n="s3_p1">FOURVIVE on Android uses Epic Online Services for sign-in (OAuth). Epic Games processes account and platform-related data under its own privacy policy:</p>
+          <p><a href="https://www.epicgames.com/site/en-US/privacypolicy" target="_blank" rel="noopener noreferrer">Epic Games Privacy Policy</a></p>
+          <p data-i18n="s3_p2">Other platforms (such as Steam on PC) use their own account systems. Account deletion on those platforms is managed by the respective provider.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2 data-i18n="s4_h">Contact</h2>
+          <p data-i18n="s4_p1">For questions about this page or data related to FOURVIVE:</p>
+          <p>
+            <strong style="color: var(--text);">JerkyCandy</strong><br />
+            <span data-i18n="s4_app">App: FOURVIVE</span><br />
+            <a href="mailto:jerkycandydev@gmail.com">jerkycandydev@gmail.com</a><br />
+            <a href="mailto:jerkycandy@naver.com">jerkycandy@naver.com</a>
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <span data-i18n="footer">© 2026 JerkyCandy. All rights reserved.</span>
+    </footer>
+  </div>
+
+  <script>
+(function () {
+  var STORAGE = "jerkycandy_site_lang";
+
+  var STR = {
+    en: {
+      meta_title: "Account Deletion | JerkyCandy",
+      meta_desc: "How to delete your account and data for FOURVIVE by JerkyCandy.",
+      aria_home: "JerkyCandy home",
+      logo_alt: "JerkyCandy",
+      nav_home: "Home",
+      lang_group: "Language",
+      title: "Account & Data Deletion",
+      updated: "Last updated: June 29, 2026",
+      badge_app: "App",
+      badge_dev: "Developer",
+      steps_h: "How to request account and data deletion",
+      step1_t: "Remove local app data on your device",
+      step1_p: "Uninstall FOURVIVE from your device, or open your device settings and clear the app's storage (app data). This removes save files, settings, and other data stored locally on your device.",
+      step2_t: "Delete or manage your Epic Games account (if applicable)",
+      step2_p: "FOURVIVE signs you in through Epic Games (Epic Online Services / OAuth). JerkyCandy does not create or operate a separate game account. To delete your Epic Games account and any data held by Epic, follow Epic's account deletion process:",
+      step2_link: "Epic Games Help — Delete your account",
+      step3_t: "Contact us if you need assistance",
+      step3_p: "If you have questions about data associated with FOURVIVE, email us at",
+      step3_or: " or ",
+      step3_tail: ". We will respond within a reasonable time.",
+      s1_h: "About accounts in FOURVIVE",
+      s1_p1: "FOURVIVE does not let you create a separate JerkyCandy account and does not store user account databases on JerkyCandy's own servers.",
+      s1_p2: "Sign-in is handled through Epic Games (Epic Online Services) using OAuth. Your Epic Games account is managed by Epic Games, not by JerkyCandy.",
+      s2_h: "Data deleted vs. retained",
+      tbl_col_data: "Data type",
+      tbl_col_action: "What happens when you delete",
+      tbl_col_retention: "Additional retention",
+      tbl_r1_data: "Local app data (save files, settings, customization, cache)",
+      tbl_r1_action: "Deleted when you uninstall the app or clear app data in device settings.",
+      tbl_r1_retention: "None on your device after uninstall or app data clear. Deletion is immediate.",
+      tbl_r2_data: "Epic Games account information (account ID, display name, authentication tokens)",
+      tbl_r2_action: "Managed by Epic Games. Delete or manage through your Epic account settings.",
+      tbl_r2_retention: "Epic may retain data according to its own policies and legal requirements. See Epic's privacy policy for details.",
+      tbl_r3_data: "Online features via Epic Online Services (e.g., multiplayer sessions, lobbies, leaderboards)",
+      tbl_r3_action: "Session data ends when you leave a session. Persistent platform-side records, if any, are handled by Epic Online Services.",
+      tbl_r3_retention: "JerkyCandy does not operate separate servers for these features. Any retention follows Epic's terms and policies.",
+      tbl_r4_data: "Support emails you send to JerkyCandy",
+      tbl_r4_action: "Deleted upon request. Contact us using the email addresses above.",
+      tbl_r4_retention: "Kept only as long as needed to respond to your inquiry, unless a longer period is required by law.",
+      s2_note: "Because FOURVIVE does not maintain its own user account system, there is no in-app \"delete account\" button operated by JerkyCandy. Removing local app data and managing your Epic Games account are the steps that apply.",
+      s3_h: "Third-party services",
+      s3_p1: "FOURVIVE on Android uses Epic Online Services for sign-in (OAuth). Epic Games processes account and platform-related data under its own privacy policy:",
+      s3_p2: "Other platforms (such as Steam on PC) use their own account systems. Account deletion on those platforms is managed by the respective provider.",
+      s4_h: "Contact",
+      s4_p1: "For questions about this page or data related to FOURVIVE:",
+      s4_app: "App: FOURVIVE",
+      footer: "© 2026 JerkyCandy. All rights reserved."
+    },
+    ko: {
+      meta_title: "계정 및 데이터 삭제 | 육포맛사탕",
+      meta_desc: "육포맛사탕 FOURVIVE 계정 및 데이터 삭제 방법.",
+      aria_home: "육포맛사탕 홈",
+      logo_alt: "육포맛사탕",
+      nav_home: "홈",
+      lang_group: "사이트 언어",
+      title: "계정 및 데이터 삭제",
+      updated: "최종 업데이트: 2026년 6월 29일",
+      badge_app: "앱",
+      badge_dev: "개발자",
+      steps_h: "계정 및 데이터 삭제 요청 방법",
+      step1_t: "기기에서 앱 로컬 데이터 삭제",
+      step1_p: "기기에서 FOURVIVE를 삭제(제거)하거나, 기기 설정에서 해당 앱의 저장공간(앱 데이터)을 삭제하세요. 저장 파일, 설정 등 기기에 저장된 데이터가 제거됩니다.",
+      step2_t: "Epic Games 계정 삭제 또는 관리 (해당되는 경우)",
+      step2_p: "FOURVIVE는 Epic Games(Epic Online Services / OAuth)를 통해 로그인합니다. 육포맛사탕(JerkyCandy)은 별도의 게임 계정을 만들거나 운영하지 않습니다. Epic Games 계정 및 Epic이 보관하는 데이터를 삭제하려면 아래 Epic Games 계정 삭제 절차를 따르세요.",
+      step2_link: "Epic Games 도움말 — 계정 삭제",
+      step3_t: "도움이 필요하면 문의",
+      step3_p: "FOURVIVE와 관련된 데이터에 대해 문의가 있으면",
+      step3_or: " 또는 ",
+      step3_tail: "으로 이메일을 보내 주세요. 합리적인 기간 내에 답변드리겠습니다.",
+      s1_h: "FOURVIVE의 계정 구조",
+      s1_p1: "FOURVIVE는 육포맛사탕 전용 계정을 생성할 수 없으며, 육포맛사탕 자체 서버에 사용자 계정 데이터베이스를 저장하지 않습니다.",
+      s1_p2: "로그인은 Epic Games(Epic Online Services) OAuth를 통해 이루어집니다. Epic Games 계정은 육포맛사탕이 아닌 Epic Games에서 관리합니다.",
+      s2_h: "삭제되는 데이터와 보관되는 데이터",
+      tbl_col_data: "데이터 유형",
+      tbl_col_action: "삭제 시 처리",
+      tbl_col_retention: "추가 보관 기간",
+      tbl_r1_data: "앱 로컬 데이터 (저장 파일, 설정, 커스터마이징, 캐시)",
+      tbl_r1_action: "앱 삭제 또는 기기 설정에서 앱 데이터 삭제 시 제거됩니다.",
+      tbl_r1_retention: "앱 삭제 또는 앱 데이터 삭제 후 기기에는 남지 않습니다. 즉시 삭제됩니다.",
+      tbl_r2_data: "Epic Games 계정 정보 (계정 ID, 표시 이름, 인증 토큰)",
+      tbl_r2_action: "Epic Games에서 관리합니다. Epic 계정 설정을 통해 삭제하거나 관리하세요.",
+      tbl_r2_retention: "Epic은 자체 정책 및 법적 요구에 따라 데이터를 보관할 수 있습니다. 자세한 내용은 Epic 개인정보처리방침을 참고하세요.",
+      tbl_r3_data: "Epic Online Services를 통한 온라인 기능 (멀티플레이 세션, 로비, 리더보드 등)",
+      tbl_r3_action: "세션 데이터는 세션 종료 시 종료됩니다. 지속적인 플랫폼 측 기록이 있는 경우 Epic Online Services에서 처리합니다.",
+      tbl_r3_retention: "육포맛사탕은 이러한 기능을 위한 별도 서버를 운영하지 않습니다. 보관 여부는 Epic 약관 및 정책을 따릅니다.",
+      tbl_r4_data: "육포맛사탕에 보낸 지원 이메일",
+      tbl_r4_action: "요청 시 삭제합니다. 위 이메일 주소로 문의해 주세요.",
+      tbl_r4_retention: "문의 응대에 필요한 기간 동안만 보관하며, 법령상 더 긴 보관이 필요한 경우는 해당 기간을 따릅니다.",
+      s2_note: "FOURVIVE는 자체 사용자 계정 시스템을 운영하지 않으므로, 육포맛사탕이 제공하는 앱 내 \"계정 삭제\" 버튼은 없습니다. 로컬 앱 데이터 삭제와 Epic Games 계정 관리가 해당되는 절차입니다.",
+      s3_h: "제3자 서비스",
+      s3_p1: "Android용 FOURVIVE는 로그인(OAuth)에 Epic Online Services를 사용합니다. Epic Games는 자체 개인정보처리방침에 따라 계정 및 플랫폼 관련 데이터를 처리합니다.",
+      s3_p2: "PC의 Steam 등 다른 플랫폼은 각자의 계정 시스템을 사용합니다. 해당 플랫폼에서의 계정 삭제는 각 제공자가 관리합니다.",
+      s4_h: "문의",
+      s4_p1: "본 페이지 또는 FOURVIVE 관련 데이터에 대한 문의:",
+      s4_app: "앱: FOURVIVE",
+      footer: "© 2026 JerkyCandy. All rights reserved."
+    }
+  };
+
+  function browserPrefersKorean() {
+    var langs = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < langs.length; i++) {
+      if (String(langs[i]).toLowerCase().indexOf("ko") === 0) return true;
+    }
+    return false;
+  }
+
+  function getInitialLang() {
+    try {
+      var s = localStorage.getItem(STORAGE);
+      if (s === "en" || s === "ko") return s;
+    } catch (e) {}
+    return browserPrefersKorean() ? "ko" : "en";
+  }
+
+  var lang = getInitialLang();
+
+  function apply() {
+    var t = STR[lang];
+    document.documentElement.lang = lang === "ko" ? "ko" : "en";
+    document.title = t.meta_title;
+    var meta = document.getElementById("meta-desc");
+    if (meta) meta.setAttribute("content", t.meta_desc);
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      if (k && t[k] !== undefined) el.textContent = t[k];
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-alt");
+      if (k && t[k] !== undefined) el.setAttribute("alt", t[k]);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria");
+      if (k && t[k] !== undefined) el.setAttribute("aria-label", t[k]);
+    });
+
+    var langGroup = document.querySelector(".lang-switch");
+    if (langGroup && t.lang_group) langGroup.setAttribute("aria-label", t.lang_group);
+
+    document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === lang ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var next = btn.getAttribute("data-set-lang");
+      if (next !== "en" && next !== "ko") return;
+      lang = next;
+      try {
+        localStorage.setItem(STORAGE, lang);
+      } catch (e) {}
+      apply();
+    });
+  });
+
+  apply();
+})();
+  </script>
+</body>
+</html>
