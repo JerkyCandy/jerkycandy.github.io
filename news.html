@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOURVIVE News</title>
+  <style>
+    :root {
+      --bg: #0a0c14;
+      --card: #10121e;
+      --line: #a9b5c2;
+      --text: #eef2ff;
+      --muted: #a9b3c9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      padding: 24px;
+    }
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 2px solid var(--line);
+      padding: 20px;
+    }
+    #notice-banner {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      aspect-ratio: 1000 / 540;
+      background: #10121e;
+      object-fit: cover;
+    }
+    .lang-block { display: none; margin-top: 18px; }
+    .lang-block.active { display: block; }
+    .title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 14px 0 10px;
+    }
+    .body { color: var(--muted); white-space: normal; }
+    .hint {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .picker { margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .picker button {
+      background: #1a2030;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Banner: game always loads https://jerkycandy.com/img/banner.png (1000x540). Preview only here. -->
+    <img id="notice-banner" src="img/banner.png" width="1000" height="540" alt="News banner" />
+
+    <div class="picker" id="lang-picker" aria-hidden="true"></div>
+
+    <div class="lang-block" data-lang="kr">
+      <div id="notice-title-kr" class="title">공지 제목</div>
+      <div id="notice-body-kr" class="body">여기에 한국어 공지 본문을 작성하세요.<br>줄바꿈은 br 태그를 사용합니다.</div>
+    </div>
+    <div class="lang-block" data-lang="en">
+      <div id="notice-title-en" class="title">Notice Title</div>
+      <div id="notice-body-en" class="body">Write the English notice body here.<br>Use br tags for line breaks.</div>
+    </div>
+    <div class="lang-block" data-lang="jp">
+      <div id="notice-title-jp" class="title">お知らせタイトル</div>
+      <div id="notice-body-jp" class="body">日本語のお知らせ本文を書いてください。<br>改行は br タグを使います。</div>
+    </div>
+    <div class="lang-block" data-lang="zhCN">
+      <div id="notice-title-zhCN" class="title">公告标题</div>
+      <div id="notice-body-zhCN" class="body">在此填写简体中文公告正文。<br>换行请使用 br 标签。</div>
+    </div>
+    <div class="lang-block" data-lang="zhTW">
+      <div id="notice-title-zhTW" class="title">公告標題</div>
+      <div id="notice-body-zhTW" class="body">在此填寫繁體中文公告正文。<br>換行請使用 br 標籤。</div>
+    </div>
+    <div class="lang-block" data-lang="tr">
+      <div id="notice-title-tr" class="title">Duyuru Başlığı</div>
+      <div id="notice-body-tr" class="body">Türkçe duyuru metnini buraya yazın.<br>Satır sonları için br kullanın.</div>
+    </div>
+    <div class="lang-block" data-lang="fr">
+      <div id="notice-title-fr" class="title">Titre de l'annonce</div>
+      <div id="notice-body-fr" class="body">Rédigez le corps de l'annonce en français ici.<br>Utilisez br pour les sauts de ligne.</div>
+    </div>
+    <div class="lang-block" data-lang="de">
+      <div id="notice-title-de" class="title">Ankündigungstitel</div>
+      <div id="notice-body-de" class="body">Schreiben Sie den deutschen Ankündigungstext hier.<br>Verwenden Sie br für Zeilenumbrüche.</div>
+    </div>
+    <div class="lang-block" data-lang="es">
+      <div id="notice-title-es" class="title">Título del aviso</div>
+      <div id="notice-body-es" class="body">Escribe el cuerpo del aviso en español aquí.<br>Usa br para saltos de línea.</div>
+    </div>
+    <div class="lang-block" data-lang="esES">
+      <div id="notice-title-esES" class="title">Título del aviso</div>
+      <div id="notice-body-esES" class="body">Escribe el cuerpo del aviso en español aquí.<br>Usa br para saltos de línea.</div>
+    </div>
+    <div class="lang-block" data-lang="ru">
+      <div id="notice-title-ru" class="title">Заголовок объявления</div>
+      <div id="notice-body-ru" class="body">Напишите текст объявления на русском здесь.<br>Для переноса строк используйте br.</div>
+    </div>
+    <div class="lang-block" data-lang="vi">
+      <div id="notice-title-vi" class="title">Tiêu đề thông báo</div>
+      <div id="notice-body-vi" class="body">Viết nội dung thông báo tiếng Việt tại đây.<br>Dùng br để xuống dòng.</div>
+    </div>
+    <div class="lang-block" data-lang="th">
+      <div id="notice-title-th" class="title">หัวข้อประกาศ</div>
+      <div id="notice-body-th" class="body">เขียนเนื้อหาประกาศภาษาไทยที่นี่<br>ใช้ br เพื่อขึ้นบรรทัดใหม่</div>
+    </div>
+    <div class="lang-block" data-lang="it">
+      <div id="notice-title-it" class="title">Titolo dell'avviso</div>
+      <div id="notice-body-it" class="body">Scrivi qui il corpo dell'avviso in italiano.<br>Usa br per le interruzioni di riga.</div>
+    </div>
+    <div class="lang-block" data-lang="pl">
+      <div id="notice-title-pl" class="title">Tytuł ogłoszenia</div>
+      <div id="notice-body-pl" class="body">Napisz treść ogłoszenia po polsku tutaj.<br>Użyj br do łamania linii.</div>
+    </div>
+    <div class="lang-block" data-lang="pt">
+      <div id="notice-title-pt" class="title">Título do aviso</div>
+      <div id="notice-body-pt" class="body">Escreva o corpo do aviso em português aqui.<br>Use br para quebras de linha.</div>
+    </div>
+    <div class="lang-block" data-lang="nl">
+      <div id="notice-title-nl" class="title">Mededelingstitel</div>
+      <div id="notice-body-nl" class="body">Schrijf hier de Nederlandse mededelingstekst.<br>Gebruik br voor regeleinden.</div>
+    </div>
+    <div class="lang-block" data-lang="uk">
+      <div id="notice-title-uk" class="title">Заголовок оголошення</div>
+      <div id="notice-body-uk" class="body">Напишіть текст оголошення українською тут.<br>Для переносу рядків використовуйте br.</div>
+    </div>
+
+    <p class="hint">Game parser reads notice-title-{lang} / notice-body-{lang}. Banner file must be img/banner.png at 1000×540.</p>
+  </div>
+  <script>
+    (function () {
+      var blocks = Array.prototype.slice.call(document.querySelectorAll(".lang-block"));
+      var picker = document.getElementById("lang-picker");
+      function show(lang) {
+        blocks.forEach(function (el) {
+          el.classList.toggle("active", el.getAttribute("data-lang") === lang);
+        });
+      }
+      blocks.forEach(function (el) {
+        var lang = el.getAttribute("data-lang");
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = lang;
+        btn.addEventListener("click", function () { show(lang); });
+        picker.appendChild(btn);
+      });
+      show("en");
+    })();
+  </script>
+</body>
+</html>
