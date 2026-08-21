@@ -37,7 +37,9 @@
       background: #10121e;
       object-fit: cover;
     }
-    .lang-block { display: none; margin-top: 18px; }
+    .notice { margin-top: 22px; padding-top: 18px; border-top: 1px solid #2a3548; }
+    .notice:first-of-type { margin-top: 8px; padding-top: 0; border-top: 0; }
+    .lang-block { display: none; }
     .lang-block.active { display: block; }
     .title {
       font-size: 1.35rem;
@@ -45,11 +47,6 @@
       margin: 14px 0 10px;
     }
     .body { color: var(--muted); white-space: normal; }
-    .hint {
-      margin-top: 24px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
     .picker { margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
     .picker button {
       background: #1a2030;
@@ -63,93 +60,288 @@
 <body>
   <div class="wrap">
     <img id="notice-banner" src="img/banner.png" width="1000" height="200" alt="News banner" />
-
     <div class="picker" id="lang-picker" aria-hidden="true"></div>
 
-    <div class="lang-block" data-lang="kr">
-      <div id="notice-title-kr" class="title">8월 이달의 쿠폰</div>
-      <div id="notice-body-kr" class="body">8월 쿠폰 번호: AUGUSTCHIP<br><br>칩 100개를 드립니다.</div>
-    </div>
-    <div class="lang-block" data-lang="en">
-      <div id="notice-title-en" class="title">August Coupon of the Month</div>
-      <div id="notice-body-en" class="body">August coupon code: AUGUSTCHIP<br><br>100 chips will be granted.</div>
-    </div>
-    <div class="lang-block" data-lang="jp">
-      <div id="notice-title-jp" class="title">8月の今月のクーポン</div>
-      <div id="notice-body-jp" class="body">8月クーポン番号: AUGUSTCHIP<br><br>チップ100個をプレゼントします。</div>
-    </div>
-    <div class="lang-block" data-lang="zhCN">
-      <div id="notice-title-zhCN" class="title">8月本月优惠券</div>
-      <div id="notice-body-zhCN" class="body">8月优惠券号码: AUGUSTCHIP<br><br>赠送 100 个筹码。</div>
-    </div>
-    <div class="lang-block" data-lang="zhTW">
-      <div id="notice-title-zhTW" class="title">8月本月優惠券</div>
-      <div id="notice-body-zhTW" class="body">8月優惠券號碼: AUGUSTCHIP<br><br>贈送 100 個籌碼。</div>
-    </div>
-    <div class="lang-block" data-lang="tr">
-      <div id="notice-title-tr" class="title">Ağustos Ayın Kuponu</div>
-      <div id="notice-body-tr" class="body">Ağustos kupon numarası: AUGUSTCHIP<br><br>100 çip verilir.</div>
-    </div>
-    <div class="lang-block" data-lang="fr">
-      <div id="notice-title-fr" class="title">Coupon du mois d'août</div>
-      <div id="notice-body-fr" class="body">Code du coupon d'août : AUGUSTCHIP<br><br>100 jetons sont offerts.</div>
-    </div>
-    <div class="lang-block" data-lang="de">
-      <div id="notice-title-de" class="title">August-Gutschein des Monats</div>
-      <div id="notice-body-de" class="body">August-Gutscheincode: AUGUSTCHIP<br><br>Es werden 100 Chips vergeben.</div>
-    </div>
-    <div class="lang-block" data-lang="es">
-      <div id="notice-title-es" class="title">Cupón del mes de agosto</div>
-      <div id="notice-body-es" class="body">Código del cupón de agosto: AUGUSTCHIP<br><br>Se otorgan 100 fichas.</div>
-    </div>
-    <div class="lang-block" data-lang="esES">
-      <div id="notice-title-esES" class="title">Cupón del mes de agosto</div>
-      <div id="notice-body-esES" class="body">Código del cupón de agosto: AUGUSTCHIP<br><br>Se otorgan 100 fichas.</div>
-    </div>
-    <div class="lang-block" data-lang="ru">
-      <div id="notice-title-ru" class="title">Купон месяца — август</div>
-      <div id="notice-body-ru" class="body">Код купона за август: AUGUSTCHIP<br><br>Выдаётся 100 фишек.</div>
-    </div>
-    <div class="lang-block" data-lang="vi">
-      <div id="notice-title-vi" class="title">Phiếu tháng 8</div>
-      <div id="notice-body-vi" class="body">Mã phiếu tháng 8: AUGUSTCHIP<br><br>Tặng 100 chip.</div>
-    </div>
-    <div class="lang-block" data-lang="th">
-      <div id="notice-title-th" class="title">คูปองประจำเดือนสิงหาคม</div>
-      <div id="notice-body-th" class="body">รหัสคูปองเดือนสิงหาคม: AUGUSTCHIP<br><br>มอบชิป 100 ชิ้น</div>
-    </div>
-    <div class="lang-block" data-lang="it">
-      <div id="notice-title-it" class="title">Coupon del mese di agosto</div>
-      <div id="notice-body-it" class="body">Codice coupon di agosto: AUGUSTCHIP<br><br>Vengono assegnati 100 chip.</div>
-    </div>
-    <div class="lang-block" data-lang="pl">
-      <div id="notice-title-pl" class="title">Kupon miesiąca — sierpień</div>
-      <div id="notice-body-pl" class="body">Kod kuponu na sierpień: AUGUSTCHIP<br><br>Przyznawane jest 100 żetonów.</div>
-    </div>
-    <div class="lang-block" data-lang="pt">
-      <div id="notice-title-pt" class="title">Cupom do mês de agosto</div>
-      <div id="notice-body-pt" class="body">Código do cupom de agosto: AUGUSTCHIP<br><br>São concedidos 100 chips.</div>
-    </div>
-    <div class="lang-block" data-lang="nl">
-      <div id="notice-title-nl" class="title">Augustus-coupon van de maand</div>
-      <div id="notice-body-nl" class="body">Augustus-couponcode: AUGUSTCHIP<br><br>Er worden 100 chips gegeven.</div>
-    </div>
-    <div class="lang-block" data-lang="uk">
-      <div id="notice-title-uk" class="title">Купон місяця — серпень</div>
-      <div id="notice-body-uk" class="body">Код купона за серпень: AUGUSTCHIP<br><br>Видається 100 фішок.</div>
+    <article class="notice" data-notice="1">
+      <div class="lang-block" data-lang="kr">
+        <div id="notice-1-title-kr" class="title">STOVE 정식 출시 안내</div>
+        <div id="notice-1-body-kr" class="body">FOURVIVE가 STOVE에도 정식 출시되었습니다!<br>STOVE 출시를 기념하여 출시 기념 쿠폰도 준비했습니다!<br><br>쿠폰 코드: WELCOMESTOVE<br><br>기존에 FOURVIVE를 즐겨주신 분들과 이번 STOVE 출시를 통해 새롭게 찾아와 주신 모든 분들께 감사드립니다.<br>앞으로도 포바이브에 많은 관심 부탁드립니다!<br><br>감사합니다.</div>
+      </div>
+      <div class="lang-block" data-lang="en">
+        <div id="notice-1-title-en" class="title">STOVE Official Launch</div>
+        <div id="notice-1-body-en" class="body">FOURVIVE is now officially available on STOVE!<br>To celebrate the STOVE launch, we've prepared a launch coupon!<br><br>Coupon code: WELCOMESTOVE<br><br>Thank you to everyone who has been enjoying FOURVIVE, and to everyone joining us through the STOVE launch.<br>Please continue to support FOURVIVE!<br><br>Thank you.</div>
+      </div>
+      <div class="lang-block" data-lang="jp">
+        <div id="notice-1-title-jp" class="title">STOVE正式リリースのお知らせ</div>
+        <div id="notice-1-body-jp" class="body">FOURVIVEがSTOVEでも正式リリースされました！<br>STOVEリリースを記念して、リリース記念クーポンもご用意しました！<br><br>クーポンコード: WELCOMESTOVE<br><br>これまでFOURVIVEを楽しんでくださった皆様、そして今回のSTOVEリリースを通じて新たに来てくださったすべての皆様に感謝いたします。<br>これからもFOURVIVEへのご関心をよろしくお願いします！<br><br>ありがとうございます。</div>
+      </div>
+      <div class="lang-block" data-lang="zhCN">
+        <div id="notice-1-title-zhCN" class="title">STOVE 正式上线公告</div>
+        <div id="notice-1-body-zhCN" class="body">FOURVIVE 已在 STOVE 正式上线！<br>为纪念 STOVE 上线，我们准备了上线纪念优惠券！<br><br>优惠券代码: WELCOMESTOVE<br><br>感谢一直以来支持 FOURVIVE 的各位，以及通过本次 STOVE 上线新加入的所有玩家。<br>今后也请多多关注 FOURVIVE！<br><br>谢谢。</div>
+      </div>
+      <div class="lang-block" data-lang="zhTW">
+        <div id="notice-1-title-zhTW" class="title">STOVE 正式上線公告</div>
+        <div id="notice-1-body-zhTW" class="body">FOURVIVE 已在 STOVE 正式上線！<br>為紀念 STOVE 上線，我們準備了上線紀念優惠券！<br><br>優惠券代碼: WELCOMESTOVE<br><br>感謝一直以來支持 FOURVIVE 的各位，以及透過本次 STOVE 上線新加入的所有玩家。<br>今後也請多多關注 FOURVIVE！<br><br>謝謝。</div>
+      </div>
+      <div class="lang-block" data-lang="tr">
+        <div id="notice-1-title-tr" class="title">STOVE Resmi Çıkış Duyurusu</div>
+        <div id="notice-1-body-tr" class="body">FOURVIVE artık STOVE'da da resmi olarak çıktı!<br>STOVE çıkışını kutlamak için bir çıkış kuponu da hazırladık!<br><br>Kupon kodu: WELCOMESTOVE<br><br>FOURVIVE'ı keyifle oynayan herkese ve STOVE çıkışıyla yeni katılan herkese teşekkür ederiz.<br>FOURVIVE'a ilginizi sürdürmenizi dileriz!<br><br>Teşekkürler.</div>
+      </div>
+      <div class="lang-block" data-lang="fr">
+        <div id="notice-1-title-fr" class="title">Annonce de sortie officielle sur STOVE</div>
+        <div id="notice-1-body-fr" class="body">FOURVIVE est désormais officiellement disponible sur STOVE !<br>Pour célébrer la sortie sur STOVE, nous avons préparé un coupon de lancement !<br><br>Code du coupon : WELCOMESTOVE<br><br>Merci à tous ceux qui ont déjà apprécié FOURVIVE, et à tous ceux qui nous rejoignent grâce à cette sortie STOVE.<br>Merci de continuer à soutenir FOURVIVE !<br><br>Merci.</div>
+      </div>
+      <div class="lang-block" data-lang="de">
+        <div id="notice-1-title-de" class="title">Offizielle STOVE-Veröffentlichung</div>
+        <div id="notice-1-body-de" class="body">FOURVIVE ist jetzt auch offiziell auf STOVE verfügbar!<br>Zur Feier der STOVE-Veröffentlichung haben wir einen Launch-Gutschein vorbereitet!<br><br>Gutscheincode: WELCOMESTOVE<br><br>Vielen Dank an alle, die FOURVIVE bereits genießen, und an alle, die über den STOVE-Launch neu dazukommen.<br>Bitte schenkt FOURVIVE auch weiterhin eure Aufmerksamkeit!<br><br>Vielen Dank.</div>
+      </div>
+      <div class="lang-block" data-lang="es">
+        <div id="notice-1-title-es" class="title">Anuncio del lanzamiento oficial en STOVE</div>
+        <div id="notice-1-body-es" class="body">¡FOURVIVE ya está disponible oficialmente también en STOVE!<br>¡Para celebrar el lanzamiento en STOVE, hemos preparado un cupón de lanzamiento!<br><br>Código del cupón: WELCOMESTOVE<br><br>Gracias a quienes ya disfrutaban de FOURVIVE y a todos los que se unen con este lanzamiento en STOVE.<br>¡Seguid mostrando interés por FOURVIVE!<br><br>¡Gracias!</div>
+      </div>
+      <div class="lang-block" data-lang="esES">
+        <div id="notice-1-title-esES" class="title">Anuncio del lanzamiento oficial en STOVE</div>
+        <div id="notice-1-body-esES" class="body">¡FOURVIVE ya está disponible oficialmente también en STOVE!<br>¡Para celebrar el lanzamiento en STOVE, hemos preparado un cupón de lanzamiento!<br><br>Código del cupón: WELCOMESTOVE<br><br>Gracias a quienes ya disfrutaban de FOURVIVE y a todos los que se unen con este lanzamiento en STOVE.<br>¡Seguid mostrando interés por FOURVIVE!<br><br>¡Gracias!</div>
+      </div>
+      <div class="lang-block" data-lang="ru">
+        <div id="notice-1-title-ru" class="title">Официальный релиз на STOVE</div>
+        <div id="notice-1-body-ru" class="body">FOURVIVE официально вышел и на STOVE!<br>В честь релиза на STOVE мы подготовили праздничный купон!<br><br>Код купона: WELCOMESTOVE<br><br>Спасибо всем, кто уже играет в FOURVIVE, и всем, кто присоединился благодаря релизу на STOVE.<br>Продолжайте поддерживать FOURVIVE!<br><br>Спасибо.</div>
+      </div>
+      <div class="lang-block" data-lang="vi">
+        <div id="notice-1-title-vi" class="title">Thông báo ra mắt chính thức trên STOVE</div>
+        <div id="notice-1-body-vi" class="body">FOURVIVE đã chính thức ra mắt trên STOVE!<br>Nhân dịp ra mắt trên STOVE, chúng tôi đã chuẩn bị mã phiếu kỷ niệm!<br><br>Mã phiếu: WELCOMESTOVE<br><br>Cảm ơn những người đã yêu thích FOURVIVE và tất cả những người mới đến qua lần ra mắt STOVE này.<br>Hãy tiếp tục quan tâm đến FOURVIVE!<br><br>Xin cảm ơn.</div>
+      </div>
+      <div class="lang-block" data-lang="th">
+        <div id="notice-1-title-th" class="title">ประกาศเปิดตัวอย่างเป็นทางการบน STOVE</div>
+        <div id="notice-1-body-th" class="body">FOURVIVE เปิดตัวอย่างเป็นทางการบน STOVE แล้ว!<br>เพื่อฉลองการเปิดตัวบน STOVE เราได้เตรียมคูปองเปิดตัวไว้ด้วย!<br><br>รหัสคูปอง: WELCOMESTOVE<br><br>ขอขอบคุณทุกท่านที่เล่น FOURVIVE มาตลอด และทุกท่านที่มาใหม่ผ่านการเปิดตัวบน STOVE ในครั้งนี้<br>โปรดให้ความสนใจ FOURVIVE ต่อไป!<br><br>ขอบคุณ!</div>
+      </div>
+      <div class="lang-block" data-lang="it">
+        <div id="notice-1-title-it" class="title">Annuncio del lancio ufficiale su STOVE</div>
+        <div id="notice-1-body-it" class="body">FOURVIVE è ora ufficialmente disponibile anche su STOVE!<br>Per celebrare il lancio su STOVE abbiamo preparato un coupon di lancio!<br><br>Codice coupon: WELCOMESTOVE<br><br>Grazie a chi ha già apprezzato FOURVIVE e a tutti coloro che ci raggiungono con questo lancio su STOVE.<br>Continuate a seguire FOURVIVE!<br><br>Grazie.</div>
+      </div>
+      <div class="lang-block" data-lang="pl">
+        <div id="notice-1-title-pl" class="title">Oficjalna premiera na STOVE</div>
+        <div id="notice-1-body-pl" class="body">FOURVIVE jest teraz oficjalnie dostępne także na STOVE!<br>Z okazji premiery na STOVE przygotowaliśmy kupon startowy!<br><br>Kod kuponu: WELCOMESTOVE<br><br>Dziękujemy wszystkim, którzy już cieszą się FOURVIVE, oraz wszystkim, którzy dołączają dzięki premierze na STOVE.<br>Prosimy o dalsze wsparcie dla FOURVIVE!<br><br>Dziękujemy.</div>
+      </div>
+      <div class="lang-block" data-lang="pt">
+        <div id="notice-1-title-pt" class="title">Anúncio do lançamento oficial na STOVE</div>
+        <div id="notice-1-body-pt" class="body">O FOURVIVE agora também está oficialmente disponível na STOVE!<br>Para celebrar o lançamento na STOVE, preparamos um cupom de lançamento!<br><br>Código do cupom: WELCOMESTOVE<br><br>Obrigado a todos que já curtem o FOURVIVE e a todos que chegam com este lançamento na STOVE.<br>Continuem acompanhando o FOURVIVE!<br><br>Obrigado.</div>
+      </div>
+      <div class="lang-block" data-lang="nl">
+        <div id="notice-1-title-nl" class="title">Officiële STOVE-lancering</div>
+        <div id="notice-1-body-nl" class="body">FOURVIVE is nu ook officieel beschikbaar op STOVE!<br>Ter viering van de STOVE-lancering hebben we een lanceercoupon klaargezet!<br><br>Couponcode: WELCOMESTOVE<br><br>Bedankt aan iedereen die FOURVIVE al speelt, en aan iedereen die via deze STOVE-lancering nieuw meedoet.<br>Blijf FOURVIVE volgen!<br><br>Bedankt.</div>
+      </div>
+      <div class="lang-block" data-lang="uk">
+        <div id="notice-1-title-uk" class="title">Офіційний реліз на STOVE</div>
+        <div id="notice-1-body-uk" class="body">FOURVIVE офіційно вийшов і на STOVE!<br>На честь релізу на STOVE ми підготували святковий купон!<br><br>Код купона: WELCOMESTOVE<br><br>Дякуємо всім, хто вже грає в FOURVIVE, і всім, хто приєднався завдяки релізу на STOVE.<br>Продовжуйте підтримувати FOURVIVE!<br><br>Дякуємо.</div>
+      </div>
+    </article>
+
+    <article class="notice" data-notice="2">
+      <div class="lang-block" data-lang="kr">
+        <div id="notice-2-title-kr" class="title">8월 이달의 쿠폰</div>
+        <div id="notice-2-body-kr" class="body">8월 쿠폰 코드: AUGUSTCHIP<br><br>칩 100개를 드립니다.</div>
+      </div>
+      <div class="lang-block" data-lang="en">
+        <div id="notice-2-title-en" class="title">August Coupon of the Month</div>
+        <div id="notice-2-body-en" class="body">August coupon code: AUGUSTCHIP<br><br>100 chips will be granted.</div>
+      </div>
+      <div class="lang-block" data-lang="jp">
+        <div id="notice-2-title-jp" class="title">8月の今月のクーポン</div>
+        <div id="notice-2-body-jp" class="body">8月クーポンコード: AUGUSTCHIP<br><br>チップ100個をプレゼントします。</div>
+      </div>
+      <div class="lang-block" data-lang="zhCN">
+        <div id="notice-2-title-zhCN" class="title">8月本月优惠券</div>
+        <div id="notice-2-body-zhCN" class="body">8月优惠券代码: AUGUSTCHIP<br><br>赠送 100 个筹码。</div>
+      </div>
+      <div class="lang-block" data-lang="zhTW">
+        <div id="notice-2-title-zhTW" class="title">8月本月優惠券</div>
+        <div id="notice-2-body-zhTW" class="body">8月優惠券代碼: AUGUSTCHIP<br><br>贈送 100 個籌碼。</div>
+      </div>
+      <div class="lang-block" data-lang="tr">
+        <div id="notice-2-title-tr" class="title">Ağustos Ayın Kuponu</div>
+        <div id="notice-2-body-tr" class="body">Ağustos kupon kodu: AUGUSTCHIP<br><br>100 çip verilir.</div>
+      </div>
+      <div class="lang-block" data-lang="fr">
+        <div id="notice-2-title-fr" class="title">Coupon du mois d'août</div>
+        <div id="notice-2-body-fr" class="body">Code du coupon d'août : AUGUSTCHIP<br><br>100 jetons sont offerts.</div>
+      </div>
+      <div class="lang-block" data-lang="de">
+        <div id="notice-2-title-de" class="title">August-Gutschein des Monats</div>
+        <div id="notice-2-body-de" class="body">August-Gutscheincode: AUGUSTCHIP<br><br>Es werden 100 Chips vergeben.</div>
+      </div>
+      <div class="lang-block" data-lang="es">
+        <div id="notice-2-title-es" class="title">Cupón del mes de agosto</div>
+        <div id="notice-2-body-es" class="body">Código del cupón de agosto: AUGUSTCHIP<br><br>Se otorgan 100 fichas.</div>
+      </div>
+      <div class="lang-block" data-lang="esES">
+        <div id="notice-2-title-esES" class="title">Cupón del mes de agosto</div>
+        <div id="notice-2-body-esES" class="body">Código del cupón de agosto: AUGUSTCHIP<br><br>Se otorgan 100 fichas.</div>
+      </div>
+      <div class="lang-block" data-lang="ru">
+        <div id="notice-2-title-ru" class="title">Купон месяца — август</div>
+        <div id="notice-2-body-ru" class="body">Код купона за август: AUGUSTCHIP<br><br>Выдаётся 100 фишек.</div>
+      </div>
+      <div class="lang-block" data-lang="vi">
+        <div id="notice-2-title-vi" class="title">Phiếu tháng 8</div>
+        <div id="notice-2-body-vi" class="body">Mã phiếu tháng 8: AUGUSTCHIP<br><br>Tặng 100 chip.</div>
+      </div>
+      <div class="lang-block" data-lang="th">
+        <div id="notice-2-title-th" class="title">คูปองประจำเดือนสิงหาคม</div>
+        <div id="notice-2-body-th" class="body">รหัสคูปองเดือนสิงหาคม: AUGUSTCHIP<br><br>มอบชิป 100 ชิ้น</div>
+      </div>
+      <div class="lang-block" data-lang="it">
+        <div id="notice-2-title-it" class="title">Coupon del mese di agosto</div>
+        <div id="notice-2-body-it" class="body">Codice coupon di agosto: AUGUSTCHIP<br><br>Vengono assegnati 100 chip.</div>
+      </div>
+      <div class="lang-block" data-lang="pl">
+        <div id="notice-2-title-pl" class="title">Kupon miesiąca — sierpień</div>
+        <div id="notice-2-body-pl" class="body">Kod kuponu na sierpień: AUGUSTCHIP<br><br>Przyznawane jest 100 żetonów.</div>
+      </div>
+      <div class="lang-block" data-lang="pt">
+        <div id="notice-2-title-pt" class="title">Cupom do mês de agosto</div>
+        <div id="notice-2-body-pt" class="body">Código do cupom de agosto: AUGUSTCHIP<br><br>São concedidos 100 chips.</div>
+      </div>
+      <div class="lang-block" data-lang="nl">
+        <div id="notice-2-title-nl" class="title">Augustus-coupon van de maand</div>
+        <div id="notice-2-body-nl" class="body">Augustus-couponcode: AUGUSTCHIP<br><br>Er worden 100 chips gegeven.</div>
+      </div>
+      <div class="lang-block" data-lang="uk">
+        <div id="notice-2-title-uk" class="title">Купон місяця — серпень</div>
+        <div id="notice-2-body-uk" class="body">Код купона за серпень: AUGUSTCHIP<br><br>Видається 100 фішок.</div>
+      </div>
+    </article>
+
+    <article class="notice" data-notice="3">
+      <div class="lang-block" data-lang="kr">
+        <div id="notice-3-title-kr" class="title">라운지 공지판 안내</div>
+        <div id="notice-3-body-kr" class="body">이제 공지를 여러 개 올릴 수 있습니다.<br>아래 목록에서 다른 공지 제목을 눌러 확인하세요.</div>
+      </div>
+      <div class="lang-block" data-lang="en">
+        <div id="notice-3-title-en" class="title">Lounge Notice Board</div>
+        <div id="notice-3-body-en" class="body">Multiple notices are now supported.<br>Tap another title in the list below to read it.</div>
+      </div>
+      <div class="lang-block" data-lang="jp">
+        <div id="notice-3-title-jp" class="title">ラウンジお知らせ案内</div>
+        <div id="notice-3-body-jp" class="body">お知らせを複数掲載できるようになりました。<br>下の一覧から別のタイトルを押して確認してください。</div>
+      </div>
+      <div class="lang-block" data-lang="zhCN">
+        <div id="notice-3-title-zhCN" class="title">休息室公告说明</div>
+        <div id="notice-3-body-zhCN" class="body">现在可以发布多条公告。<br>点击下方列表中的其他标题即可查看。</div>
+      </div>
+      <div class="lang-block" data-lang="zhTW">
+        <div id="notice-3-title-zhTW" class="title">休息室公告說明</div>
+        <div id="notice-3-body-zhTW" class="body">現在可以發布多則公告。<br>點擊下方列表中的其他標題即可查看。</div>
+      </div>
+      <div class="lang-block" data-lang="tr">
+        <div id="notice-3-title-tr" class="title">Lobi Duyuru Panosu</div>
+        <div id="notice-3-body-tr" class="body">Artık birden fazla duyuru destekleniyor.<br>Aşağıdaki listeden başka bir başlığa dokunarak okuyun.</div>
+      </div>
+      <div class="lang-block" data-lang="fr">
+        <div id="notice-3-title-fr" class="title">Panneau d'annonces du salon</div>
+        <div id="notice-3-body-fr" class="body">Plusieurs annonces sont désormais prises en charge.<br>Appuyez sur un autre titre dans la liste ci-dessous pour le lire.</div>
+      </div>
+      <div class="lang-block" data-lang="de">
+        <div id="notice-3-title-de" class="title">Lounge-Hinweisbrett</div>
+        <div id="notice-3-body-de" class="body">Mehrere Hinweise werden jetzt unterstützt.<br>Tippe unten auf einen anderen Titel, um ihn zu lesen.</div>
+      </div>
+      <div class="lang-block" data-lang="es">
+        <div id="notice-3-title-es" class="title">Tablón de avisos del salón</div>
+        <div id="notice-3-body-es" class="body">Ahora se admiten varios avisos.<br>Toca otro título de la lista inferior para leerlo.</div>
+      </div>
+      <div class="lang-block" data-lang="esES">
+        <div id="notice-3-title-esES" class="title">Tablón de avisos del salón</div>
+        <div id="notice-3-body-esES" class="body">Ahora se admiten varios avisos.<br>Toca otro título de la lista inferior para leerlo.</div>
+      </div>
+      <div class="lang-block" data-lang="ru">
+        <div id="notice-3-title-ru" class="title">Доска объявлений лаунжа</div>
+        <div id="notice-3-body-ru" class="body">Теперь поддерживается несколько объявлений.<br>Нажмите другой заголовок в списке ниже, чтобы прочитать.</div>
+      </div>
+      <div class="lang-block" data-lang="vi">
+        <div id="notice-3-title-vi" class="title">Bảng thông báo sảnh</div>
+        <div id="notice-3-body-vi" class="body">Hiện hỗ trợ nhiều thông báo.<br>Chạm tiêu đề khác trong danh sách bên dưới để đọc.</div>
+      </div>
+      <div class="lang-block" data-lang="th">
+        <div id="notice-3-title-th" class="title">กระดานประกาศเลานจ์</div>
+        <div id="notice-3-body-th" class="body">รองรับประกาศหลายรายการแล้ว<br>แตะชื่อเรื่องอื่นในรายการด้านล่างเพื่ออ่าน</div>
+      </div>
+      <div class="lang-block" data-lang="it">
+        <div id="notice-3-title-it" class="title">Bacheca avvisi lounge</div>
+        <div id="notice-3-body-it" class="body">Ora sono supportati più avvisi.<br>Tocca un altro titolo nell'elenco sotto per leggerlo.</div>
+      </div>
+      <div class="lang-block" data-lang="pl">
+        <div id="notice-3-title-pl" class="title">Tablica ogłoszeń lounge</div>
+        <div id="notice-3-body-pl" class="body">Obsługiwanych jest teraz wiele ogłoszeń.<br>Dotknij innego tytułu na liście poniżej, aby przeczytać.</div>
+      </div>
+      <div class="lang-block" data-lang="pt">
+        <div id="notice-3-title-pt" class="title">Quadro de avisos do lounge</div>
+        <div id="notice-3-body-pt" class="body">Vários avisos agora são suportados.<br>Toque em outro título na lista abaixo para ler.</div>
+      </div>
+      <div class="lang-block" data-lang="nl">
+        <div id="notice-3-title-nl" class="title">Lounge-prikbord</div>
+        <div id="notice-3-body-nl" class="body">Meerdere mededelingen worden nu ondersteund.<br>Tik op een andere titel in de lijst hieronder om te lezen.</div>
+      </div>
+      <div class="lang-block" data-lang="uk">
+        <div id="notice-3-title-uk" class="title">Дошка оголошень лаунжу</div>
+        <div id="notice-3-body-uk" class="body">Тепер підтримується кілька оголошень.<br>Натисніть інший заголовок у списку нижче, щоб прочитати.</div>
+      </div>
+    </article>
+
+    <!-- 구 클라 호환: notice-title-{lang} / notice-body-{lang} (공지 1과 동일, 화면 숨김) -->
+    <div class="legacy-notice" aria-hidden="true" style="display:none">
+      <div id="notice-title-kr">STOVE 정식 출시 안내</div>
+      <div id="notice-body-kr">FOURVIVE가 STOVE에도 정식 출시되었습니다!<br>STOVE 출시를 기념하여 출시 기념 쿠폰도 준비했습니다!<br><br>쿠폰 코드: WELCOMESTOVE<br><br>기존에 FOURVIVE를 즐겨주신 분들과 이번 STOVE 출시를 통해 새롭게 찾아와 주신 모든 분들께 감사드립니다.<br>앞으로도 포바이브에 많은 관심 부탁드립니다!<br><br>감사합니다.</div>
+      <div id="notice-title-en">STOVE Official Launch</div>
+      <div id="notice-body-en">FOURVIVE is now officially available on STOVE!<br>To celebrate the STOVE launch, we've prepared a launch coupon!<br><br>Coupon code: WELCOMESTOVE<br><br>Thank you to everyone who has been enjoying FOURVIVE, and to everyone joining us through the STOVE launch.<br>Please continue to support FOURVIVE!<br><br>Thank you.</div>
+      <div id="notice-title-jp">STOVE正式リリースのお知らせ</div>
+      <div id="notice-body-jp">FOURVIVEがSTOVEでも正式リリースされました！<br>STOVEリリースを記念して、リリース記念クーポンもご用意しました！<br><br>クーポンコード: WELCOMESTOVE<br><br>これまでFOURVIVEを楽しんでくださった皆様、そして今回のSTOVEリリースを通じて新たに来てくださったすべての皆様に感謝いたします。<br>これからもFOURVIVEへのご関心をよろしくお願いします！<br><br>ありがとうございます。</div>
+      <div id="notice-title-zhCN">STOVE 正式上线公告</div>
+      <div id="notice-body-zhCN">FOURVIVE 已在 STOVE 正式上线！<br>为纪念 STOVE 上线，我们准备了上线纪念优惠券！<br><br>优惠券代码: WELCOMESTOVE<br><br>感谢一直以来支持 FOURVIVE 的各位，以及通过本次 STOVE 上线新加入的所有玩家。<br>今后也请多多关注 FOURVIVE！<br><br>谢谢。</div>
+      <div id="notice-title-zhTW">STOVE 正式上線公告</div>
+      <div id="notice-body-zhTW">FOURVIVE 已在 STOVE 正式上線！<br>為紀念 STOVE 上線，我們準備了上線紀念優惠券！<br><br>優惠券代碼: WELCOMESTOVE<br><br>感謝一直以來支持 FOURVIVE 的各位，以及透過本次 STOVE 上線新加入的所有玩家。<br>今後也請多多關注 FOURVIVE！<br><br>謝謝。</div>
+      <div id="notice-title-tr">STOVE Resmi Çıkış Duyurusu</div>
+      <div id="notice-body-tr">FOURVIVE artık STOVE'da da resmi olarak çıktı!<br>STOVE çıkışını kutlamak için bir çıkış kuponu da hazırladık!<br><br>Kupon kodu: WELCOMESTOVE<br><br>FOURVIVE'ı keyifle oynayan herkese ve STOVE çıkışıyla yeni katılan herkese teşekkür ederiz.<br>FOURVIVE'a ilginizi sürdürmenizi dileriz!<br><br>Teşekkürler.</div>
+      <div id="notice-title-fr">Annonce de sortie officielle sur STOVE</div>
+      <div id="notice-body-fr">FOURVIVE est désormais officiellement disponible sur STOVE !<br>Pour célébrer la sortie sur STOVE, nous avons préparé un coupon de lancement !<br><br>Code du coupon : WELCOMESTOVE<br><br>Merci à tous ceux qui ont déjà apprécié FOURVIVE, et à tous ceux qui nous rejoignent grâce à cette sortie STOVE.<br>Merci de continuer à soutenir FOURVIVE !<br><br>Merci.</div>
+      <div id="notice-title-de">Offizielle STOVE-Veröffentlichung</div>
+      <div id="notice-body-de">FOURVIVE ist jetzt auch offiziell auf STOVE verfügbar!<br>Zur Feier der STOVE-Veröffentlichung haben wir einen Launch-Gutschein vorbereitet!<br><br>Gutscheincode: WELCOMESTOVE<br><br>Vielen Dank an alle, die FOURVIVE bereits genießen, und an alle, die über den STOVE-Launch neu dazukommen.<br>Bitte schenkt FOURVIVE auch weiterhin eure Aufmerksamkeit!<br><br>Vielen Dank.</div>
+      <div id="notice-title-es">Anuncio del lanzamiento oficial en STOVE</div>
+      <div id="notice-body-es">¡FOURVIVE ya está disponible oficialmente también en STOVE!<br>¡Para celebrar el lanzamiento en STOVE, hemos preparado un cupón de lanzamiento!<br><br>Código del cupón: WELCOMESTOVE<br><br>Gracias a quienes ya disfrutaban de FOURVIVE y a todos los que se unen con este lanzamiento en STOVE.<br>¡Seguid mostrando interés por FOURVIVE!<br><br>¡Gracias!</div>
+      <div id="notice-title-esES">Anuncio del lanzamiento oficial en STOVE</div>
+      <div id="notice-body-esES">¡FOURVIVE ya está disponible oficialmente también en STOVE!<br>¡Para celebrar el lanzamiento en STOVE, hemos preparado un cupón de lanzamiento!<br><br>Código del cupón: WELCOMESTOVE<br><br>Gracias a quienes ya disfrutaban de FOURVIVE y a todos los que se unen con este lanzamiento en STOVE.<br>¡Seguid mostrando interés por FOURVIVE!<br><br>¡Gracias!</div>
+      <div id="notice-title-ru">Официальный релиз на STOVE</div>
+      <div id="notice-body-ru">FOURVIVE официально вышел и на STOVE!<br>В честь релиза на STOVE мы подготовили праздничный купон!<br><br>Код купона: WELCOMESTOVE<br><br>Спасибо всем, кто уже играет в FOURVIVE, и всем, кто присоединился благодаря релизу на STOVE.<br>Продолжайте поддерживать FOURVIVE!<br><br>Спасибо.</div>
+      <div id="notice-title-vi">Thông báo ra mắt chính thức trên STOVE</div>
+      <div id="notice-body-vi">FOURVIVE đã chính thức ra mắt trên STOVE!<br>Nhân dịp ra mắt trên STOVE, chúng tôi đã chuẩn bị mã phiếu kỷ niệm!<br><br>Mã phiếu: WELCOMESTOVE<br><br>Cảm ơn những người đã yêu thích FOURVIVE và tất cả những người mới đến qua lần ra mắt STOVE này.<br>Hãy tiếp tục quan tâm đến FOURVIVE!<br><br>Xin cảm ơn.</div>
+      <div id="notice-title-th">ประกาศเปิดตัวอย่างเป็นทางการบน STOVE</div>
+      <div id="notice-body-th">FOURVIVE เปิดตัวอย่างเป็นทางการบน STOVE แล้ว!<br>เพื่อฉลองการเปิดตัวบน STOVE เราได้เตรียมคูปองเปิดตัวไว้ด้วย!<br><br>รหัสคูปอง: WELCOMESTOVE<br><br>ขอขอบคุณทุกท่านที่เล่น FOURVIVE มาตลอด และทุกท่านที่มาใหม่ผ่านการเปิดตัวบน STOVE ในครั้งนี้<br>โปรดให้ความสนใจ FOURVIVE ต่อไป!<br><br>ขอบคุณ!</div>
+      <div id="notice-title-it">Annuncio del lancio ufficiale su STOVE</div>
+      <div id="notice-body-it">FOURVIVE è ora ufficialmente disponibile anche su STOVE!<br>Per celebrare il lancio su STOVE abbiamo preparato un coupon di lancio!<br><br>Codice coupon: WELCOMESTOVE<br><br>Grazie a chi ha già apprezzato FOURVIVE e a tutti coloro che ci raggiungono con questo lancio su STOVE.<br>Continuate a seguire FOURVIVE!<br><br>Grazie.</div>
+      <div id="notice-title-pl">Oficjalna premiera na STOVE</div>
+      <div id="notice-body-pl">FOURVIVE jest teraz oficjalnie dostępne także na STOVE!<br>Z okazji premiery na STOVE przygotowaliśmy kupon startowy!<br><br>Kod kuponu: WELCOMESTOVE<br><br>Dziękujemy wszystkim, którzy już cieszą się FOURVIVE, oraz wszystkim, którzy dołączają dzięki premierze na STOVE.<br>Prosimy o dalsze wsparcie dla FOURVIVE!<br><br>Dziękujemy.</div>
+      <div id="notice-title-pt">Anúncio do lançamento oficial na STOVE</div>
+      <div id="notice-body-pt">O FOURVIVE agora também está oficialmente disponível na STOVE!<br>Para celebrar o lançamento na STOVE, preparamos um cupom de lançamento!<br><br>Código do cupom: WELCOMESTOVE<br><br>Obrigado a todos que já curtem o FOURVIVE e a todos que chegam com este lançamento na STOVE.<br>Continuem acompanhando o FOURVIVE!<br><br>Obrigado.</div>
+      <div id="notice-title-nl">Officiële STOVE-lancering</div>
+      <div id="notice-body-nl">FOURVIVE is nu ook officieel beschikbaar op STOVE!<br>Ter viering van de STOVE-lancering hebben we een lanceercoupon klaargezet!<br><br>Couponcode: WELCOMESTOVE<br><br>Bedankt aan iedereen die FOURVIVE al speelt, en aan iedereen die via deze STOVE-lancering nieuw meedoet.<br>Blijf FOURVIVE volgen!<br><br>Bedankt.</div>
+      <div id="notice-title-uk">Офіційний реліз на STOVE</div>
+      <div id="notice-body-uk">FOURVIVE офіційно вийшов і на STOVE!<br>На честь релізу на STOVE ми підготували святковий купон!<br><br>Код купона: WELCOMESTOVE<br><br>Дякуємо всім, хто вже грає в FOURVIVE, і всім, хто приєднався завдяки релізу на STOVE.<br>Продовжуйте підтримувати FOURVIVE!<br><br>Дякуємо.</div>
     </div>
   </div>
   <script>
     (function () {
       var blocks = Array.prototype.slice.call(document.querySelectorAll(".lang-block"));
       var picker = document.getElementById("lang-picker");
+      var langs = [];
+      blocks.forEach(function (el) {
+        var lang = el.getAttribute("data-lang");
+        if (langs.indexOf(lang) < 0) langs.push(lang);
+      });
       function show(lang) {
         blocks.forEach(function (el) {
           el.classList.toggle("active", el.getAttribute("data-lang") === lang);
         });
       }
-      blocks.forEach(function (el) {
-        var lang = el.getAttribute("data-lang");
+      langs.forEach(function (lang) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.textContent = lang;
