@@ -10,7 +10,7 @@
   <link rel="manifest" href="favicon/manifest.json" />
   <meta name="msapplication-config" content="favicon/browserconfig.xml" />
   <title>JerkyCandy | Solo Game Developer</title>
-  <meta id="meta-desc" name="description" content="JerkyCandy is a solo indie game developer based in South Korea and the creator of FOURVIVE." />
+  <meta id="meta-desc" name="description" content="JerkyCandy is a solo indie game developer and the creator of FOURVIVE." />
   <style>
     :root {
       --bg: #0a0c14;
@@ -116,40 +116,21 @@
     }
 
     .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      margin-left: 4px;
+      align-self: center;
+      max-width: 100%;
+      min-height: 36px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.03);
-      overflow: hidden;
-    }
-
-    .lang-switch .lang-btn {
-      margin: 0;
-      padding: 9px 14px;
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 700;
-      font-family: inherit;
-      letter-spacing: 0.04em;
+      background: #211b36;
+      color: var(--text);
+      color-scheme: dark;
+      font: inherit;
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: color 0.2s ease, background 0.2s ease;
     }
 
-    .lang-switch .lang-btn:hover {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .lang-switch .lang-btn[aria-pressed="true"] {
-      color: var(--text);
-      background: rgba(139, 92, 246, 0.22);
-    }
-
-    .lang-switch .lang-btn:focus-visible {
+    .lang-switch:focus-visible {
       outline: 2px solid var(--accent-2);
       outline-offset: 2px;
     }
@@ -701,10 +682,17 @@
         <a href="#about" data-i18n="nav_about">About</a>
         <a href="#game" data-i18n="nav_game">Game</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
-        <div class="lang-switch" role="group" aria-label="Site language">
-          <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="true">EN</button>
-          <button type="button" class="lang-btn" data-set-lang="ko" aria-pressed="false">한국어</button>
-        </div>
+        <select class="lang-switch" id="site-language" aria-label="Site language">
+          <option value="en" lang="en">English</option>
+          <option value="ko" lang="ko">한국어</option>
+          <option value="ja" lang="ja">日本語</option>
+          <option value="zh-Hans" lang="zh-Hans">简体中文</option>
+          <option value="zh-Hant" lang="zh-Hant">繁體中文</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt-BR" lang="pt-BR">Português (Brasil)</option>
+          <option value="de" lang="de">Deutsch</option>
+          <option value="fr" lang="fr">Français</option>
+        </select>
       </nav>
     </div>
   </header>
@@ -716,7 +704,7 @@
           <div class="eyebrow"><span class="dot"></span> <span data-i18n="hero_eyebrow">Solo Indie Game Developer</span></div>
           <h1><span data-i18n="hero_brand">JerkyCandy</span></h1>
           <p class="lead" data-i18n="hero_lead">
-            I'm a solo indie game developer based in South Korea. I made FOURVIVE.
+            I'm a solo indie game developer. I made FOURVIVE.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://store.steampowered.com/app/4353490/FOURVIVE/" target="_blank" rel="noopener noreferrer"><span class="btn-brand-icon" aria-hidden="true"><img src="img/steam.svg" alt="" width="24" height="24" decoding="async" /></span><span data-i18n="hero_btn_steam">Steam</span></a>
@@ -812,9 +800,6 @@
           <div class="contact-card">
             <a href="mailto:jerkycandydev@gmail.com">jerkycandydev@gmail.com</a>
           </div>
-          <div class="contact-card">
-            <a href="mailto:jerkycandy@naver.com">jerkycandy@naver.com</a>
-          </div>
         </div>
       </section>
     </main>
@@ -833,7 +818,7 @@
   var STR = {
     en: {
       meta_title: "JerkyCandy | Solo Game Developer",
-      meta_desc: "JerkyCandy is a solo indie game developer based in South Korea and the creator of FOURVIVE.",
+      meta_desc: "JerkyCandy is a solo indie game developer and the creator of FOURVIVE.",
       aria_brand: "JerkyCandy home",
       logo_alt: "JerkyCandy",
       hero_brand: "JerkyCandy",
@@ -843,7 +828,7 @@
       nav_contact: "Contact",
       lang_group: "Language",
       hero_eyebrow: "Solo Indie Game Developer",
-      hero_lead: "I'm a solo indie game developer based in South Korea. I made FOURVIVE.",
+      hero_lead: "I'm a solo indie game developer. I made FOURVIVE.",
       hero_btn_steam: "Steam",
       hero_btn_playstore: "Google Play",
       hero_btn_stove: "STOVE",
@@ -879,24 +864,24 @@
       footer_account_delete: "Account deletion"
     },
     ko: {
-      meta_title: "육포맛사탕",
-      meta_desc: "육포맛사탕은 1인 게임 개발자입니다.",
-      aria_brand: "육포맛사탕 홈",
-      logo_alt: "육포맛사탕",
-      hero_brand: "육포맛사탕",
-      about_brand: "육포맛사탕",
+      meta_title: "JerkyCandy",
+      meta_desc: "JerkyCandy는 1인 게임 개발자입니다.",
+      aria_brand: "JerkyCandy 홈",
+      logo_alt: "JerkyCandy",
+      hero_brand: "JerkyCandy",
+      about_brand: "JerkyCandy",
       nav_about: "소개",
       nav_game: "게임",
       nav_contact: "문의",
       lang_group: "사이트 언어",
       hero_eyebrow: "인디 게임 개발자",
-      hero_lead: "육포맛사탕은 독창적인 아이디어와 몰입감 있는 플레이를 지향하는 1인 개발자입니다. 기억에 남는 경험을 담은 게임을 만들고자 합니다.",
+      hero_lead: "JerkyCandy는 독창적인 아이디어와 몰입감 있는 플레이를 지향하는 1인 개발자입니다. 기억에 남는 경험을 담은 게임을 만들고자 합니다.",
       hero_btn_steam: "Steam",
       hero_btn_playstore: "Google Play",
       hero_btn_stove: "STOVE",
       hero_btn_contact: "문의하기",
       about_h2: "소개",
-      about_body: "은 1인 게임 개발자입니다. 플레이 중심의 경험과 새로운 시도를 즐깁니다.",
+      about_body: "는 1인 게임 개발자입니다. 플레이 중심의 경험과 새로운 시도를 즐깁니다.",
       about_m1_title: "개발 방향",
       about_m1_body: "기획부터 완성까지, 각 프로젝트는 뚜렷한 게임플레이 정체성과 플레이어에게 전달하고 싶은 핵심 아이디어를 중심으로 구성됩니다.",
       about_m2_title: "1인 개발",
@@ -924,30 +909,303 @@
       footer_terms: "이용약관",
       footer_privacy: "개인정보처리방침",
       footer_account_delete: "계정 삭제"
+    },
+    "ja": {
+      meta_title: "JerkyCandy | 個人ゲーム開発者",
+      meta_desc: "JerkyCandyは『FOURVIVE』を制作したインディーゲーム開発者です。",
+      aria_brand: "JerkyCandyのホーム",
+      nav_about: "紹介",
+      nav_game: "ゲーム",
+      nav_contact: "お問い合わせ",
+      lang_group: "サイトの言語",
+      hero_eyebrow: "個人インディーゲーム開発者",
+      hero_lead: "インディーゲームを一人で開発しています。『FOURVIVE』を制作しました。",
+      hero_btn_contact: "お問い合わせ",
+      about_h2: "紹介",
+      about_body: "は、私がゲームを公開するときの名前です。作品ごとに、形にしたい遊びのアイデアを一つ選んで制作しています。",
+      about_m1_title: "ゲームデザイン",
+      about_m1_body: "プレイヤーが一つひとつの場面で何をするか、ゲームの仕組みがどうかみ合うかを大切にしています。",
+      about_m2_title: "個人開発",
+      about_m2_body: "企画から完成まで、設計とプログラミングを一人で行っています。",
+      game_h2: "ゲーム",
+      game_art_label: "注目のタイトル",
+      game_figure_aria: "FOURVIVEのカバーアート",
+      game_boxart_alt: "FOURVIVEのカバー画像",
+      game_caption: "オンライン協力 / サバイバルアクション / 最大4人 / クロスプレイ",
+      game_badge: "注目の作品",
+      game_lead: "『FOURVIVE（フォーバイブ）』は最大4人で遊べるオンライン協力サバイバルアクションです。仲間とチームを組み、武器を選び、次々に現れる敵を迎え撃ちましょう。",
+      game_f1_t: "最大4人のオンライン協力",
+      game_f1_d: "フレンドとオンラインで共闘できます。",
+      game_f2_t: "サバイバルアクション",
+      game_f2_d: "仲間と力を合わせ、テンポの速い戦いを生き延びましょう。",
+      game_f3_t: "多彩な武器",
+      game_f3_d: "自分のプレイスタイルに合った武器を選べます。",
+      game_btn_discord: "公式Discord",
+      contact_h2: "お問い合わせ",
+      contact_email: "メール",
+      footer_terms: "利用規約",
+      footer_privacy: "プライバシーポリシー",
+      footer_account_delete: "アカウント削除"
+    },
+    "zh-Hans": {
+      meta_title: "JerkyCandy | 独立游戏开发者",
+      meta_desc: "JerkyCandy 是独立游戏开发者，也是《FOURVIVE》的创作者。",
+      aria_brand: "JerkyCandy 首页",
+      nav_about: "关于",
+      nav_game: "游戏",
+      nav_contact: "联系",
+      lang_group: "网站语言",
+      hero_eyebrow: "个人独立游戏开发者",
+      hero_lead: "我是一名独立游戏开发者，由我独立制作的游戏是《FOURVIVE》。",
+      hero_btn_contact: "联系我们",
+      about_h2: "关于",
+      about_body: " 是我发布游戏时使用的名字。每个项目都围绕一个我想尝试的玩法创意展开。",
+      about_m1_title: "游戏设计",
+      about_m1_body: "我关注玩家在游戏中的每一步操作，以及各种机制如何相互配合。",
+      about_m2_title: "个人开发",
+      about_m2_body: "从构思到完成，我独立负责游戏设计和编程。",
+      game_h2: "游戏",
+      game_art_label: "精选游戏",
+      game_figure_aria: "FOURVIVE 封面插画",
+      game_boxart_alt: "FOURVIVE 游戏封面",
+      game_caption: "在线合作 / 生存动作 / 最多 4 人 / 跨平台联机",
+      game_badge: "精选作品",
+      game_lead: "《FOURVIVE》是一款最多支持 4 人的在线合作生存动作游戏。与好友组队，选择武器，抵御一波波敌人的进攻。",
+      game_f1_t: "最多 4 人在线合作",
+      game_f1_d: "在线与好友并肩作战。",
+      game_f2_t: "生存动作",
+      game_f2_d: "相互配合，在快节奏的战斗中生存下来。",
+      game_f3_t: "多种武器",
+      game_f3_d: "选择适合自己玩法的武器。",
+      game_btn_discord: "官方 Discord",
+      contact_h2: "联系",
+      contact_email: "电子邮件",
+      footer_terms: "使用条款",
+      footer_privacy: "隐私政策",
+      footer_account_delete: "删除账号"
+    },
+    "zh-Hant": {
+      meta_title: "JerkyCandy | 獨立遊戲開發者",
+      meta_desc: "JerkyCandy 是獨立遊戲開發者，也是《FOURVIVE》的創作者。",
+      aria_brand: "JerkyCandy 首頁",
+      nav_about: "關於",
+      nav_game: "遊戲",
+      nav_contact: "聯絡",
+      lang_group: "網站語言",
+      hero_eyebrow: "個人獨立遊戲開發者",
+      hero_lead: "我是一名獨立遊戲開發者，《FOURVIVE》是我獨立製作的遊戲。",
+      hero_btn_contact: "聯絡我",
+      about_h2: "關於",
+      about_body: " 是我發行遊戲時使用的名字。每款遊戲都從一個我想探索的玩法點子出發。",
+      about_m1_title: "遊戲設計",
+      about_m1_body: "我著重玩家在遊戲中的每一步操作，以及各種機制如何互相搭配。",
+      about_m2_title: "個人開發",
+      about_m2_body: "從發想到完成，我獨自負責遊戲設計與程式開發。",
+      game_h2: "遊戲",
+      game_art_label: "精選遊戲",
+      game_figure_aria: "FOURVIVE 封面插畫",
+      game_boxart_alt: "FOURVIVE 遊戲封面",
+      game_caption: "線上合作 / 生存動作 / 最多 4 人 / 跨平台連線",
+      game_badge: "精選作品",
+      game_lead: "《FOURVIVE》是一款最多支援 4 人的線上合作生存動作遊戲。與好友組隊，選擇武器，抵擋一波又一波的敵人。",
+      game_f1_t: "最多 4 人線上合作",
+      game_f1_d: "與好友連線並肩作戰。",
+      game_f2_t: "生存動作",
+      game_f2_d: "彼此合作，在快節奏的戰鬥中生存下來。",
+      game_f3_t: "多樣武器",
+      game_f3_d: "選擇符合自己遊玩風格的武器。",
+      game_btn_discord: "官方 Discord",
+      contact_h2: "聯絡",
+      contact_email: "電子郵件",
+      footer_terms: "使用條款",
+      footer_privacy: "隱私權政策",
+      footer_account_delete: "刪除帳號"
+    },
+    "es": {
+      meta_title: "JerkyCandy | Desarrollo independiente de videojuegos",
+      meta_desc: "JerkyCandy desarrolla videojuegos de forma independiente y es responsable de la creación de FOURVIVE.",
+      aria_brand: "Inicio de JerkyCandy",
+      nav_about: "Acerca de",
+      nav_game: "Juego",
+      nav_contact: "Contacto",
+      lang_group: "Idioma del sitio",
+      hero_eyebrow: "Desarrollo independiente de videojuegos",
+      hero_lead: "Desarrollo videojuegos por mi cuenta. Creé FOURVIVE.",
+      hero_btn_contact: "Contáctame",
+      about_h2: "Acerca de",
+      about_body: " es el nombre con el que publico mis juegos. Cada proyecto parte de una idea de juego que quiero explorar.",
+      about_m1_title: "Diseño de juegos",
+      about_m1_body: "Me centro en lo que hacen los jugadores en cada momento y en cómo encajan las mecánicas del juego.",
+      about_m2_title: "Desarrollo en solitario",
+      about_m2_body: "Diseño y programo mis juegos por mi cuenta, desde la idea inicial hasta la versión final.",
+      game_h2: "Juego",
+      game_art_label: "Juego destacado",
+      game_figure_aria: "Ilustración de portada de FOURVIVE",
+      game_boxart_alt: "Portada de FOURVIVE",
+      game_caption: "Cooperativo en línea / Acción y supervivencia / Hasta 4 jugadores / Juego cruzado",
+      game_badge: "Proyecto destacado",
+      game_lead: "FOURVIVE es un juego cooperativo en línea de acción y supervivencia para hasta cuatro jugadores. Forma un equipo, elige tus armas y resiste oleadas de enemigos.",
+      game_f1_t: "Cooperativo en línea para hasta 4 jugadores",
+      game_f1_d: "Lucha en línea junto a tus amigos.",
+      game_f2_t: "Acción y supervivencia",
+      game_f2_d: "Colabora con tu equipo para sobrevivir a combates rápidos.",
+      game_f3_t: "Variedad de armas",
+      game_f3_d: "Elige armas que se adapten a tu estilo de juego.",
+      game_btn_discord: "Discord oficial",
+      contact_h2: "Contacto",
+      contact_email: "Correo electrónico",
+      footer_terms: "Términos de uso",
+      footer_privacy: "Política de privacidad",
+      footer_account_delete: "Eliminación de cuenta"
+    },
+    "pt-BR": {
+      meta_title: "JerkyCandy | Desenvolvimento independente de jogos",
+      meta_desc: "JerkyCandy desenvolve jogos de forma independente e criou FOURVIVE.",
+      aria_brand: "Página inicial de JerkyCandy",
+      nav_about: "Sobre",
+      nav_game: "Jogo",
+      nav_contact: "Contato",
+      lang_group: "Idioma do site",
+      hero_eyebrow: "Desenvolvimento independente de jogos",
+      hero_lead: "Desenvolvo jogos indie por conta própria. Criei FOURVIVE.",
+      hero_btn_contact: "Entre em contato",
+      about_h2: "Sobre",
+      about_body: " é o nome que uso para lançar meus jogos. Cada projeto nasce de uma ideia de jogabilidade que quero explorar.",
+      about_m1_title: "Design de jogos",
+      about_m1_body: "Meu foco é o que os jogadores fazem a cada momento e como as mecânicas do jogo se encaixam.",
+      about_m2_title: "Desenvolvimento solo",
+      about_m2_body: "Cuido do design e da programação por conta própria, da primeira ideia à versão final.",
+      game_h2: "Jogo",
+      game_art_label: "Jogo em destaque",
+      game_figure_aria: "Arte da capa de FOURVIVE",
+      game_boxart_alt: "Capa de FOURVIVE",
+      game_caption: "Cooperativo online / Ação e sobrevivência / Até 4 jogadores / Jogo entre plataformas",
+      game_badge: "Projeto em destaque",
+      game_lead: "FOURVIVE é um jogo cooperativo online de ação e sobrevivência para até quatro jogadores. Monte sua equipe, escolha suas armas e enfrente ondas de inimigos.",
+      game_f1_t: "Cooperativo online para até 4 jogadores",
+      game_f1_d: "Lute ao lado dos seus amigos online.",
+      game_f2_t: "Ação e sobrevivência",
+      game_f2_d: "Trabalhem em equipe para sobreviver a combates intensos.",
+      game_f3_t: "Variedade de armas",
+      game_f3_d: "Escolha armas que combinem com seu estilo de jogo.",
+      game_btn_discord: "Discord oficial",
+      contact_h2: "Contato",
+      contact_email: "E-mail",
+      footer_terms: "Termos de uso",
+      footer_privacy: "Política de privacidade",
+      footer_account_delete: "Exclusão de conta"
+    },
+    "de": {
+      meta_title: "JerkyCandy | Unabhängige Spieleentwicklung",
+      meta_desc: "JerkyCandy entwickelt eigenständig Indie-Spiele und hat FOURVIVE entwickelt.",
+      aria_brand: "JerkyCandy – Startseite",
+      nav_about: "Über mich",
+      nav_game: "Spiel",
+      nav_contact: "Kontakt",
+      lang_group: "Sprache der Website",
+      hero_eyebrow: "Unabhängige Spieleentwicklung",
+      hero_lead: "Ich entwickle Indie-Spiele im Alleingang. FOURVIVE ist eines meiner Spiele.",
+      hero_btn_contact: "Kontakt aufnehmen",
+      about_h2: "Über mich",
+      about_body: " ist der Name, unter dem ich meine Spiele veröffentliche. Jedes Projekt entsteht aus einer Spielidee, die ich ausprobieren möchte.",
+      about_m1_title: "Spieldesign",
+      about_m1_body: "Ich konzentriere mich darauf, was Spieler im Spiel tun und wie die Spielmechaniken zusammenspielen.",
+      about_m2_title: "Solo-Entwicklung",
+      about_m2_body: "Von der ersten Idee bis zur fertigen Version übernehme ich Design und Programmierung selbst.",
+      game_h2: "Spiel",
+      game_art_label: "Spiel im Fokus",
+      game_figure_aria: "Covermotiv von FOURVIVE",
+      game_boxart_alt: "Cover von FOURVIVE",
+      game_caption: "Online-Koop / Survival-Action / Bis zu 4 Spieler / Crossplay",
+      game_badge: "Projekt im Fokus",
+      game_lead: "FOURVIVE ist ein Online-Koop-Spiel mit Survival-Action für bis zu vier Spieler. Bildet ein Team, wählt eure Waffen und wehrt Gegnerwellen ab.",
+      game_f1_t: "Online-Koop für bis zu 4 Spieler",
+      game_f1_d: "Kämpft online an der Seite eurer Freunde.",
+      game_f2_t: "Survival-Action",
+      game_f2_d: "Arbeitet zusammen, um rasante Kämpfe zu überleben.",
+      game_f3_t: "Vielfältige Waffen",
+      game_f3_d: "Wählt Waffen, die zu eurem Spielstil passen.",
+      game_btn_discord: "Offizieller Discord",
+      contact_h2: "Kontakt",
+      contact_email: "E-Mail",
+      footer_terms: "Nutzungsbedingungen",
+      footer_privacy: "Datenschutzerklärung",
+      footer_account_delete: "Konto löschen"
+    },
+    "fr": {
+      meta_title: "JerkyCandy | Développement indépendant de jeux vidéo",
+      meta_desc: "JerkyCandy développe des jeux indépendants en solo et a créé FOURVIVE.",
+      aria_brand: "Accueil de JerkyCandy",
+      nav_about: "À propos",
+      nav_game: "Jeu",
+      nav_contact: "Contact",
+      lang_group: "Langue du site",
+      hero_eyebrow: "Développement indépendant de jeux vidéo",
+      hero_lead: "Je développe des jeux indépendants en solo. J’ai créé FOURVIVE.",
+      hero_btn_contact: "Me contacter",
+      about_h2: "À propos",
+      about_body: " est le nom sous lequel je publie mes jeux. Chaque projet part d’une idée de jeu que j’ai envie d’explorer.",
+      about_m1_title: "Conception de jeux",
+      about_m1_body: "Je m’intéresse à ce que les joueurs font à chaque instant et à la façon dont les mécaniques du jeu s’articulent.",
+      about_m2_title: "Développement en solo",
+      about_m2_body: "De la première idée à la version finale, je conçois et je programme mes jeux moi-même.",
+      game_h2: "Jeu",
+      game_art_label: "Jeu à la une",
+      game_figure_aria: "Illustration de couverture de FOURVIVE",
+      game_boxart_alt: "Couverture de FOURVIVE",
+      game_caption: "Coop en ligne / Action et survie / Jusqu’à 4 joueurs / Jeu multiplateforme",
+      game_badge: "Projet à la une",
+      game_lead: "FOURVIVE est un jeu d’action et de survie en coopération en ligne jusqu’à quatre joueurs. Formez une équipe, choisissez vos armes et repoussez des vagues d’ennemis.",
+      game_f1_t: "Coop en ligne jusqu’à 4 joueurs",
+      game_f1_d: "Combattez en ligne aux côtés de vos amis.",
+      game_f2_t: "Action et survie",
+      game_f2_d: "Coopérez pour survivre à des combats intenses.",
+      game_f3_t: "Armes variées",
+      game_f3_d: "Choisissez des armes adaptées à votre style de jeu.",
+      game_btn_discord: "Discord officiel",
+      contact_h2: "Contact",
+      contact_email: "E-mail",
+      footer_terms: "Conditions d’utilisation",
+      footer_privacy: "Politique de confidentialité",
+      footer_account_delete: "Suppression du compte"
     }
   };
 
-  function browserPrefersKorean() {
-    var langs = navigator.languages || [navigator.language || ""];
-    for (var i = 0; i < langs.length; i++) {
-      if (String(langs[i]).toLowerCase().indexOf("ko") === 0) return true;
-    }
-    return false;
+  var picker = document.getElementById("site-language");
+
+  function supported(lang) {
+    return Object.prototype.hasOwnProperty.call(STR, lang);
+  }
+
+  function matchBrowserLanguage(tag) {
+    var parts = tag.toLowerCase().split("-");
+    var language = parts[0];
+    if (language === "pt") return "pt-BR";
+    if (language !== "zh") return supported(language) ? language : null;
+    if (parts[1] === "hant") return "zh-Hant";
+    if (parts[1] === "hans") return "zh-Hans";
+    return ["tw", "hk", "mo"].indexOf(parts[1]) >= 0 ? "zh-Hant" : "zh-Hans";
   }
 
   function getInitialLang() {
     try {
-      var s = localStorage.getItem(STORAGE);
-      if (s === "en" || s === "ko") return s;
+      var saved = localStorage.getItem(STORAGE);
+      if (supported(saved)) return saved;
     } catch (e) {}
-    return browserPrefersKorean() ? "ko" : "en";
+    var languages = navigator.languages;
+    if (!languages || !languages.length) languages = [navigator.language || ""];
+    for (var i = 0; i < languages.length; i++) {
+      var match = matchBrowserLanguage(languages[i]);
+      if (match) return match;
+    }
+    return "en";
   }
 
   var lang = getInitialLang();
 
   function apply() {
-    var t = STR[lang];
-    document.documentElement.lang = lang === "ko" ? "ko" : "en";
+    var t = Object.assign({}, STR.en, STR[lang]);
+    document.documentElement.lang = lang;
     document.title = t.meta_title;
     var meta = document.getElementById("meta-desc");
     if (meta) meta.setAttribute("content", t.meta_desc);
@@ -967,24 +1225,17 @@
       if (k && t[k] !== undefined) el.setAttribute("aria-label", t[k]);
     });
 
-    var langGroup = document.querySelector(".lang-switch");
-    if (langGroup && t.lang_group) langGroup.setAttribute("aria-label", t.lang_group);
-
-    document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
-      btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === lang ? "true" : "false");
-    });
+    picker.setAttribute("aria-label", t.lang_group);
+    picker.value = lang;
   }
 
-  document.querySelectorAll(".lang-btn[data-set-lang]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var next = btn.getAttribute("data-set-lang");
-      if (next !== "en" && next !== "ko") return;
-      lang = next;
-      try {
-        localStorage.setItem(STORAGE, lang);
-      } catch (e) {}
-      apply();
-    });
+  picker.addEventListener("change", function () {
+    if (!supported(picker.value)) return;
+    lang = picker.value;
+    try {
+      localStorage.setItem(STORAGE, lang);
+    } catch (e) {}
+    apply();
   });
 
   apply();
